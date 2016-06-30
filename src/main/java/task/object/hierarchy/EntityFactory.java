@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by P1A-7CK on 30.06.2016.
  */
-public class EntityGenerator {
+public class EntityFactory {
     public StarSystem generateSystem(String name) {
         Random rn = new Random();
         Star star;

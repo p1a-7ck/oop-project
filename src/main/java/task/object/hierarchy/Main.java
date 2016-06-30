@@ -13,9 +13,9 @@ public class Main {
         System.out.println(sunSystem);
 
         StarSystem pseudoSystem;
-        EntityGenerator entityGenerator = new EntityGenerator();
+        EntityFactory entityFactory = new EntityFactory();
 
-        pseudoSystem = entityGenerator.generateSystem("Pseudo System");
+        pseudoSystem = entityFactory.generateSystem("Pseudo System");
         System.out.println(pseudoSystem);
     }
 }
