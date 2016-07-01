@@ -32,6 +32,6 @@ public class PropertyLong extends PropertyBase implements Property {
 
     @Override
     public String toString() {
-        return "Property '" + super.getName() + "' = (Long) " + value;
+        return "Property '" + super.getName() + "' = (Long) " + value + "\n";
     }
 }

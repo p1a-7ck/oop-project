@@ -30,6 +30,6 @@ public class PropertyString extends PropertyBase implements Property {
 
     @Override
     public String toString() {
-        return "Property '" + super.getName() + "' = (String) " + value;
+        return "Property '" + super.getName() + "' = (String) " + value + "\n";
     }
 }

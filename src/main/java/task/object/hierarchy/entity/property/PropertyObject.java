@@ -29,6 +29,6 @@ public class PropertyObject extends PropertyBase implements Property {
 
     @Override
     public String toString() {
-        return "Property '" + super.getName() + "' = (Object) " + value;
+        return "Property '" + super.getName() + "' = (Object) " + value + "\n";
     }
 }

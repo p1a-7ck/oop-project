@@ -132,10 +132,28 @@ public class BodyBase implements Body {
         return null;
     }
 
-    private String toStringProperties() {
+    public Body convertToComposite() {
+        Body bodyComposite = new BodyComposite();
+        bodyComposite.setName(name);
+        Property property;
+        for (int i = 0;; i++) {
+            property = getProperty(i);
+            if (property != null) {
+                bodyComposite.addProperty(property);
+                break;
+            }
+        }
+        if (parent != null) {
+            parent.delBody(name);
+            parent.addBody(bodyComposite);
+        }
+        return bodyComposite;
+    }
+
+    protected String toStringProperties() {
         String o = "";
 
-        if (properties != null) for (Property property : properties) o += "\t" + property;
+        if (properties != null) for (Property property : properties) o += property;
         return o;
     }
 
@@ -146,11 +164,9 @@ public class BodyBase implements Body {
 
     // Override
     public Body addBody(Body body) { return null; }
+    public Body addBody(String name) { return null; }
     public boolean delBody(String name) { return false; }
     public Body getBody(String name) { return null; }
     public Body getBody(int arrayIndex) { return null; }
-    public Body convertToComposite(Body body) { return null; }
-    public Body convertToComposite(String name) { return null; }
-    public Body convertToBase(Body body) { return null; }
-    public Body convertToBase(String name) { return null; }
+    public Body convertToBase() { return null; }
 }

@@ -1,11 +1,13 @@
 package task.object.hierarchy.entity;
 
+import task.object.hierarchy.entity.property.*;
+
 import java.util.ArrayList;
 
 /**
  * Created by P1A-7CK on 01.07.2016.
  */
-public class BodyComposite extends BodyBase implements Body, BodySystem {
+public class BodyComposite extends BodyBase implements Body {
     ArrayList<Body> bodies = new ArrayList<Body>();
 
     public BodyComposite() { }
@@ -15,6 +17,18 @@ public class BodyComposite extends BodyBase implements Body, BodySystem {
         if (getBody(body.getName()) == null) {
             bodies.add(body);
             body.getParent().delBody(body.getName());
+            body.setParent(this);
+            return body;
+        }
+        return null;
+    }
+
+    @Override
+    public Body addBody(String name) {
+        if (getBody(name) == null) {
+            Body body = new BodyBase();
+            body.setName(name);
+            bodies.add(body);
             body.setParent(this);
             return body;
         }
@@ -52,22 +66,39 @@ public class BodyComposite extends BodyBase implements Body, BodySystem {
     }
 
     @Override
-    public Body convertToComposite(Body body) {
-        return null; //TODO cloning issue
+    public Body convertToBase() {
+        if (bodies == null) {
+            if (bodies.size() == 0) {
+                Body bodyBase = new BodyBase();
+                bodyBase.setName(super.name);
+                Property property;
+                for (int i = 0;; i++) {
+                    property = super.getProperty(i);
+                    if (property != null) {
+                        bodyBase.addProperty(property);
+                        break;
+                    }
+                }
+                if (super.parent != null) {
+                    super.parent.delBody(super.name);
+                    super.parent.addBody(bodyBase);
+                }
+                return bodyBase;
+            }
+        }
+        return null;
+    }
+
+    protected String toStringBodies() {
+        String o = "";
+
+        if (bodies != null) for (Body body : bodies) o += body;
+        return o;
     }
 
     @Override
-    public Body convertToComposite(String name) {
-        return null; //TODO cloning issue
+    public String toString() {
+        return "Body Composite '" + this.name + "'\n" + super.toStringProperties() + toStringBodies();
     }
 
-    @Override
-    public Body convertToBase(Body body) {
-        return null; //TODO cloning issue
-    }
-
-    @Override
-    public Body convertToBase(String name) {
-        return null; //TODO cloning issue
-    }
 }

@@ -20,11 +20,10 @@ public interface Body {
     <T> T getPropertyValue(String name);
     <T> T getPropertyValue(int arrayIndex);
     Body addBody(Body body);
+    Body addBody(String name);
     boolean delBody(String name);
     Body getBody(String name);
     Body getBody(int arrayIndex);
-    Body convertToComposite(Body body);
-    Body convertToComposite(String name);
-    Body convertToBase(Body body);
-    Body convertToBase(String name);
+    Body convertToComposite();
+    Body convertToBase();
 }
