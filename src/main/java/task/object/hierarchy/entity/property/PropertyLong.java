@@ -20,6 +20,7 @@ public class PropertyLong extends PropertyBase implements Property {
     @Override
     public <T> void setValue(T value) {
         Long valueLong = (Long) value;
+        if (valueLong < 0) valueLong *= -1;
         if (valueLong <= 0 || valueLong >= Long.MAX_VALUE)
             throw new IndexOutOfBoundsException("Property value should be in a range form 0 to " + Long.MAX_VALUE);
         this.value = valueLong;

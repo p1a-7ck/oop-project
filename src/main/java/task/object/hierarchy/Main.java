@@ -2,6 +2,7 @@ package task.object.hierarchy;
 
 import task.object.hierarchy.entity.*;
 import task.object.hierarchy.entity.Body;
+import task.object.hierarchy.entity.immitation.*;
 import task.object.hierarchy.entity.property.*;
 
 /**
@@ -10,41 +11,11 @@ import task.object.hierarchy.entity.property.*;
 public class Main {
     public static void main(String[] args) {
 
-        task.object.hierarchy.entity.Body body = new BodyBase();
-        task.object.hierarchy.entity.Body bodyComposite = new BodyComposite();
-
-        body.setName("Sun");
-        body.addProperty("Mass", 5987345L);
+        task.object.hierarchy.entity.Body body = new BodyFactory().createRandomSystem(5, 7, 10, 8, 6);
 
         System.out.println(body);
 
-        body.delProperty("Mass");
-        body.addProperty("Class", "SUPERNOVA");
-
-        Property property = body.getProperty("Class");
-        property = null;
-
-
-        System.out.println(body);
-
-
-        bodyComposite = body.convertToComposite();
-        body = bodyComposite;
-        if (bodyComposite != null) {
-            Body addedBody = bodyComposite.addBody("Earth");
-            System.out.println("====" + addedBody.getName());
-            if (addedBody != null) addedBody.addProperty("Mass", 234987L);
-        }
-
-        body.addBody("Moon");
-
-        System.out.println(body);
-
-        //ParameterDouble parameterDouble = new ParameterDouble("name");
-
-        //parameterDouble.setValue(0.0);
-
-        //System.out.println(parameterDouble);
+        System.out.println("Total mass equals to " + body.getMass());
 
         /*
          *

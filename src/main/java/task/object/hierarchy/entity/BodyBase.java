@@ -94,7 +94,7 @@ public class BodyBase implements Body {
     }
 
     public Property getProperty(int arrayIndex) {
-        if (properties != null && arrayIndex >=0 && arrayIndex < properties.size()) return properties.get(arrayIndex);
+        if (properties != null) if (arrayIndex >=0 && arrayIndex < properties.size()) return properties.get(arrayIndex);
         return null;
     }
 
@@ -135,19 +135,30 @@ public class BodyBase implements Body {
     public Body convertToComposite() {
         Body bodyComposite = new BodyComposite();
         bodyComposite.setName(name);
-        Property property;
+        Property property = null;
         for (int i = 0;; i++) {
             property = getProperty(i);
             if (property != null) {
                 bodyComposite.addProperty(property);
+            } else {
                 break;
             }
         }
         if (parent != null) {
-            parent.delBody(name);
-            parent.addBody(bodyComposite);
+            Body bodyParent = parent;
+            bodyParent.delBody(name);
+            bodyParent.addBody(bodyComposite);
         }
         return bodyComposite;
+    }
+
+    public double getMass() {
+        Property property = getProperty("MASS");
+        if (property != null) {
+            Long mass = property.getValue();
+            return mass;
+        }
+        return 0;
     }
 
     protected String toStringProperties() {

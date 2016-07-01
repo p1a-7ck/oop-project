@@ -26,4 +26,5 @@ public interface Body {
     Body getBody(int arrayIndex);
     Body convertToComposite();
     Body convertToBase();
+    double getMass();
 }

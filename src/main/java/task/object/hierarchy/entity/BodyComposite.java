@@ -16,7 +16,7 @@ public class BodyComposite extends BodyBase implements Body {
     public Body addBody(Body body) {
         if (getBody(body.getName()) == null) {
             bodies.add(body);
-            body.getParent().delBody(body.getName());
+            if (body.getParent() != null) body.getParent().delBody(body.getName());
             body.setParent(this);
             return body;
         }
@@ -89,10 +89,24 @@ public class BodyComposite extends BodyBase implements Body {
         return null;
     }
 
+    @Override
+    public double getMass() {
+        double massAll = 0;
+        Long mass;
+
+        Property property = getProperty("MASS");
+        if (property != null) {
+            mass = property.getValue();
+            massAll = mass;
+        }
+        if (bodies != null) for (Body body : bodies) massAll += body.getMass();
+        return massAll;
+    }
+
     protected String toStringBodies() {
         String o = "";
 
-        if (bodies != null) for (Body body : bodies) o += body;
+        if (bodies != null) for (Body body : bodies) o += super.name + "/" + body;
         return o;
     }
 

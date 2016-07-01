@@ -1,6 +1,241 @@
-Body 'Sun'
-	Property 'Mass' = (Long) 5987345
-Body 'Sun'
-	Property 'Class' = (String) SUPERNOVA
+Body Composite 'Star System'
+Star System/Body 'LREBD'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 144409918790668800
+Star System/Body 'EVV'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 2905431893663196727
+Star System/Body 'XCU'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 2898712297491498877
+Star System/Body 'VESSO'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 1640230307826417272
+Property 'ROWU' = (String) DUAHJYJIREUMB
+Property 'MQA' = (String) JE
+Star System/Body 'BI'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 6120904175683960903
+Property 'HIXEE' = (String) AOGELBYUW
+Star System/Body Composite 'WILYI'
+Property 'TYPE' = (String) STAR
+Property 'MASS' = (Long) 6038946457646901003
+Property 'YYQE' = (String) GIGBEYKNEUWIE
+Property 'EIR' = (String) SCOUZZUGR
+Property 'AA' = (String) EJLIMCETPIOQIXV
+Property 'IB' = (String) OHYCOOQVEVDYLQE
+WILYI/Body Composite 'LNEVG'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 3596298803818139664
+Property 'BILM' = (String) YPASAPXA
+Property 'JQ' = (String) XIORROIXHUL
+Property 'OOL' = (String) VQAYGIWEUDLIG
+Property 'YY' = (String) PROEPNUYKYUCXEX
+Property 'LE' = (String) NVEPANGI
+LNEVG/Body 'YNM'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7015588245714759962
+Property 'UHJI' = (String) IMJEACIWOFACEU
+Property 'PYJKA' = (String) YCJYOQPU
+LNEVG/Body 'QHOLF'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 4014987208446226351
+Property 'EZOIW' = (String) ZMAEXIVUMSI
+LNEVG/Body 'XOJE'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7560131415741713784
+LNEVG/Body 'JSYET'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 2437243431763395454
+Property 'YHWOE' = (String) QJIKIIDAURAYMUX
+LNEVG/Body 'LY'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7448180053048353778
+LNEVG/Body 'SY'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1111670250552852999
+Property 'EENI' = (String) UYGRYUJQU
+LNEVG/Body 'VEORA'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 4207910484576879647
+Property 'GX' = (String) EAPHUM
+WILYI/Body Composite 'NYT'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 4125382779293886529
+Property 'XKAYX' = (String) HVIKIXOE
+Property 'IHHO' = (String) AUVE
+Property 'AY' = (String) DIHCAOHVU
+Property 'OB' = (String) FKUULGYH
+Property 'OO' = (String) GQYU
+NYT/Body 'LZYU'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5093019723946807195
+Property 'YAQYF' = (String) RPOENAIXEPY
+Property 'IL' = (String) SOUCBIT
+NYT/Body 'UFFAE'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7821007783904311910
+Property 'DEC' = (String) IMUCCIB
+NYT/Body 'QNAG'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7918257835954179986
+Property 'GUAHO' = (String) VQI
+NYT/Body 'UZY'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1926435982737022409
+Property 'COVYH' = (String) UUWYECEARNAZ
+NYT/Body 'TA'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1785059200005174793
+Property 'YBW' = (String) AY
+WILYI/Body Composite 'LDI'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 5299234865623417506
+Property 'BOUV' = (String) PFUUJOARLEXDUYB
+Property 'UOXE' = (String) EFXYOWPY
+Property 'ALM' = (String) EGZEE
+Property 'XBO' = (String) UIXNUUJIHGO
+Property 'UY' = (String) IWTAUFOYF
+LDI/Body 'WN'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 8042067424195952891
+Property 'AHYC' = (String) UX
+Property 'QAAQ' = (String) EIFAYJXUAFJYAS
+LDI/Body 'NVAP'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5002042899976217186
+Property 'YR' = (String) EAJDEYKQYDOX
+Property 'IV' = (String) YPEEZAUDUOZFO
+Property 'KIZIY' = (String) YANAODUJECOSEPO
+LDI/Body 'UDIF'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5875042288134772537
+Property 'AAKUI' = (String) LM
+Property 'AO' = (String) ELYJXACIIXEA
+Property 'EBYA' = (String) WGO
+LDI/Body 'IEK'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 2816849006721488139
+Property 'DFE' = (String) OPIMLAASFEQCAW
+LDI/Body 'EKR'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 253623483551516028
+Property 'VY' = (String) YAZIAX
+Property 'FEI' = (String) MBENQU
+Property 'UIBKE' = (String) CYIG
+LDI/Body 'VXYW'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 944760107759626958
+Property 'YFEE' = (String) MWOUNIBHE
+WILYI/Body Composite 'NWUS'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 5505558932648263909
+Property 'VDOU' = (String) PIVM
+Property 'TSON' = (String) AIGEKK
+Property 'QEI' = (String) FX
+Property 'JOXAE' = (String) UQXUIPYYZOEQEJ
+Property 'AEK' = (String) NUITYA
+NWUS/Body 'XAI'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 6437773675645862396
+Property 'ER' = (String) EYZQY
+Property 'PAQ' = (String) IBAALIWGY
+Property 'AF' = (String) UX
+NWUS/Body 'AO'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 2807541179656493896
+Property 'SNE' = (String) UO
+NWUS/Body 'IJBO'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 6303505253720698921
+Property 'IV' = (String) IDHOBGEMGEYXPO
+Property 'XSIZH' = (String) PPAWAOPHYAVOZDU
+NWUS/Body 'OK'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 4097339898645222884
+NWUS/Body 'XITEA'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 8826200463016552369
+Property 'YTC' = (String) PGOSYTTODEJZYI
+NWUS/Body 'HJIA'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5808189740644581357
+Property 'SIIR' = (String) YCTAASEUHGABMOT
+Property 'CYIK' = (String) LYRQYBPIJHYEW
+WILYI/Body Composite 'ILDAY'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 3644007801821680892
+Property 'QRU' = (String) NEHEUKGIVU
+Property 'WGEF' = (String) IID
+Property 'ZP' = (String) FRUMERVAOVRYIRX
+Property 'MCYI' = (String) BEV
+Property 'IASY' = (String) UUMYWR
+ILDAY/Body 'AYSIA'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 3964104212245223915
+ILDAY/Body 'OOGL'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5317173637777468237
+Property 'BYP' = (String) GWY
+ILDAY/Body 'YOX'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5383037686374180853
+Property 'MV' = (String) YOVENO
+ILDAY/Body 'UQ'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7536184343148524515
+Property 'AU' = (String) WUINUKAONHO
+Property 'SSOAQ' = (String) ISD
+Property 'EOV' = (String) XLEQAA
+Property 'WL' = (String) UOLAMQAI
+ILDAY/Body 'UCG'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 7098896048468394243
+Property 'YVE' = (String) YRTIEVGUCY
+Property 'WOU' = (String) JIMKUXXAQY
+Property 'EBEM' = (String) AJ
+WILYI/Body Composite 'ENVA'
+Property 'TYPE' = (String) PLANET
+Property 'MASS' = (Long) 629097761240721579
+Property 'ODP' = (String) ECROENAAQVEAKX
+Property 'HEKU' = (String) OORPIAMISOQREUX
+Property 'LO' = (String) AJFU
+Property 'IO' = (String) JIYCYHCAAF
+Property 'YG' = (String) IUSJI
+ENVA/Body 'DH'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1179119078891447098
+Property 'YOG' = (String) AEC
+ENVA/Body 'OUKYG'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 3626107301424587660
+Property 'FBO' = (String) AWWOKLOUVVE
+Property 'ZCOZ' = (String) EYJHEYJU
+Property 'GE' = (String) JLI
+ENVA/Body 'NKI'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1518721917819304952
+Property 'JRO' = (String) IIHTUQ
+Property 'OEP' = (String) DYJJYCR
+Property 'AMADO' = (String) IXYQMAHTYEZO
+ENVA/Body 'AY'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 5973810590236594049
+Property 'JEPBA' = (String) KEAWYUTIPSIMD
+Property 'AEFV' = (String) OUSEPQAAWIDE
+ENVA/Body 'FF'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 4824691697046099337
+Property 'WZA' = (String) AGJYULIZ
+Property 'YC' = (String) MGUE
+Property 'NUFA' = (String) YVC
+ENVA/Body 'MU'
+Property 'TYPE' = (String) SATELLITE
+Property 'MASS' = (Long) 1627457010254362480
+Property 'AT' = (String) EARINSIEJA
+Property 'AYP' = (String) LYUNGIBUYBEVO
+Property 'CXUX' = (String) DIXUAPUUXVAKOO
+
+Total mass equals to 2.061519465572956E20
 
 Process finished with exit code 0
