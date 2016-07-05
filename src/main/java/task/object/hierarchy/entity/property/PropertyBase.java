@@ -19,4 +19,5 @@ public class PropertyBase implements Property {
 
     public <T> void setValue(T value) { }
     public <T> T getValue() { return null; }
+
 }
