@@ -1,241 +1,67 @@
-Body Composite 'Star System'
-Star System/Body 'LREBD'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 144409918790668800
-Star System/Body 'EVV'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 2905431893663196727
-Star System/Body 'XCU'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 2898712297491498877
-Star System/Body 'VESSO'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 1640230307826417272
-Property 'ROWU' = (String) DUAHJYJIREUMB
-Property 'MQA' = (String) JE
-Star System/Body 'BI'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 6120904175683960903
-Property 'HIXEE' = (String) AOGELBYUW
-Star System/Body Composite 'WILYI'
-Property 'TYPE' = (String) STAR
-Property 'MASS' = (Long) 6038946457646901003
-Property 'YYQE' = (String) GIGBEYKNEUWIE
-Property 'EIR' = (String) SCOUZZUGR
-Property 'AA' = (String) EJLIMCETPIOQIXV
-Property 'IB' = (String) OHYCOOQVEVDYLQE
-WILYI/Body Composite 'LNEVG'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 3596298803818139664
-Property 'BILM' = (String) YPASAPXA
-Property 'JQ' = (String) XIORROIXHUL
-Property 'OOL' = (String) VQAYGIWEUDLIG
-Property 'YY' = (String) PROEPNUYKYUCXEX
-Property 'LE' = (String) NVEPANGI
-LNEVG/Body 'YNM'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7015588245714759962
-Property 'UHJI' = (String) IMJEACIWOFACEU
-Property 'PYJKA' = (String) YCJYOQPU
-LNEVG/Body 'QHOLF'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 4014987208446226351
-Property 'EZOIW' = (String) ZMAEXIVUMSI
-LNEVG/Body 'XOJE'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7560131415741713784
-LNEVG/Body 'JSYET'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 2437243431763395454
-Property 'YHWOE' = (String) QJIKIIDAURAYMUX
-LNEVG/Body 'LY'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7448180053048353778
-LNEVG/Body 'SY'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1111670250552852999
-Property 'EENI' = (String) UYGRYUJQU
-LNEVG/Body 'VEORA'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 4207910484576879647
-Property 'GX' = (String) EAPHUM
-WILYI/Body Composite 'NYT'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 4125382779293886529
-Property 'XKAYX' = (String) HVIKIXOE
-Property 'IHHO' = (String) AUVE
-Property 'AY' = (String) DIHCAOHVU
-Property 'OB' = (String) FKUULGYH
-Property 'OO' = (String) GQYU
-NYT/Body 'LZYU'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5093019723946807195
-Property 'YAQYF' = (String) RPOENAIXEPY
-Property 'IL' = (String) SOUCBIT
-NYT/Body 'UFFAE'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7821007783904311910
-Property 'DEC' = (String) IMUCCIB
-NYT/Body 'QNAG'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7918257835954179986
-Property 'GUAHO' = (String) VQI
-NYT/Body 'UZY'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1926435982737022409
-Property 'COVYH' = (String) UUWYECEARNAZ
-NYT/Body 'TA'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1785059200005174793
-Property 'YBW' = (String) AY
-WILYI/Body Composite 'LDI'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 5299234865623417506
-Property 'BOUV' = (String) PFUUJOARLEXDUYB
-Property 'UOXE' = (String) EFXYOWPY
-Property 'ALM' = (String) EGZEE
-Property 'XBO' = (String) UIXNUUJIHGO
-Property 'UY' = (String) IWTAUFOYF
-LDI/Body 'WN'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 8042067424195952891
-Property 'AHYC' = (String) UX
-Property 'QAAQ' = (String) EIFAYJXUAFJYAS
-LDI/Body 'NVAP'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5002042899976217186
-Property 'YR' = (String) EAJDEYKQYDOX
-Property 'IV' = (String) YPEEZAUDUOZFO
-Property 'KIZIY' = (String) YANAODUJECOSEPO
-LDI/Body 'UDIF'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5875042288134772537
-Property 'AAKUI' = (String) LM
-Property 'AO' = (String) ELYJXACIIXEA
-Property 'EBYA' = (String) WGO
-LDI/Body 'IEK'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 2816849006721488139
-Property 'DFE' = (String) OPIMLAASFEQCAW
-LDI/Body 'EKR'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 253623483551516028
-Property 'VY' = (String) YAZIAX
-Property 'FEI' = (String) MBENQU
-Property 'UIBKE' = (String) CYIG
-LDI/Body 'VXYW'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 944760107759626958
-Property 'YFEE' = (String) MWOUNIBHE
-WILYI/Body Composite 'NWUS'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 5505558932648263909
-Property 'VDOU' = (String) PIVM
-Property 'TSON' = (String) AIGEKK
-Property 'QEI' = (String) FX
-Property 'JOXAE' = (String) UQXUIPYYZOEQEJ
-Property 'AEK' = (String) NUITYA
-NWUS/Body 'XAI'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 6437773675645862396
-Property 'ER' = (String) EYZQY
-Property 'PAQ' = (String) IBAALIWGY
-Property 'AF' = (String) UX
-NWUS/Body 'AO'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 2807541179656493896
-Property 'SNE' = (String) UO
-NWUS/Body 'IJBO'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 6303505253720698921
-Property 'IV' = (String) IDHOBGEMGEYXPO
-Property 'XSIZH' = (String) PPAWAOPHYAVOZDU
-NWUS/Body 'OK'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 4097339898645222884
-NWUS/Body 'XITEA'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 8826200463016552369
-Property 'YTC' = (String) PGOSYTTODEJZYI
-NWUS/Body 'HJIA'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5808189740644581357
-Property 'SIIR' = (String) YCTAASEUHGABMOT
-Property 'CYIK' = (String) LYRQYBPIJHYEW
-WILYI/Body Composite 'ILDAY'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 3644007801821680892
-Property 'QRU' = (String) NEHEUKGIVU
-Property 'WGEF' = (String) IID
-Property 'ZP' = (String) FRUMERVAOVRYIRX
-Property 'MCYI' = (String) BEV
-Property 'IASY' = (String) UUMYWR
-ILDAY/Body 'AYSIA'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 3964104212245223915
-ILDAY/Body 'OOGL'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5317173637777468237
-Property 'BYP' = (String) GWY
-ILDAY/Body 'YOX'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5383037686374180853
-Property 'MV' = (String) YOVENO
-ILDAY/Body 'UQ'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7536184343148524515
-Property 'AU' = (String) WUINUKAONHO
-Property 'SSOAQ' = (String) ISD
-Property 'EOV' = (String) XLEQAA
-Property 'WL' = (String) UOLAMQAI
-ILDAY/Body 'UCG'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 7098896048468394243
-Property 'YVE' = (String) YRTIEVGUCY
-Property 'WOU' = (String) JIMKUXXAQY
-Property 'EBEM' = (String) AJ
-WILYI/Body Composite 'ENVA'
-Property 'TYPE' = (String) PLANET
-Property 'MASS' = (Long) 629097761240721579
-Property 'ODP' = (String) ECROENAAQVEAKX
-Property 'HEKU' = (String) OORPIAMISOQREUX
-Property 'LO' = (String) AJFU
-Property 'IO' = (String) JIYCYHCAAF
-Property 'YG' = (String) IUSJI
-ENVA/Body 'DH'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1179119078891447098
-Property 'YOG' = (String) AEC
-ENVA/Body 'OUKYG'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 3626107301424587660
-Property 'FBO' = (String) AWWOKLOUVVE
-Property 'ZCOZ' = (String) EYJHEYJU
-Property 'GE' = (String) JLI
-ENVA/Body 'NKI'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1518721917819304952
-Property 'JRO' = (String) IIHTUQ
-Property 'OEP' = (String) DYJJYCR
-Property 'AMADO' = (String) IXYQMAHTYEZO
-ENVA/Body 'AY'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 5973810590236594049
-Property 'JEPBA' = (String) KEAWYUTIPSIMD
-Property 'AEFV' = (String) OUSEPQAAWIDE
-ENVA/Body 'FF'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 4824691697046099337
-Property 'WZA' = (String) AGJYULIZ
-Property 'YC' = (String) MGUE
-Property 'NUFA' = (String) YVC
-ENVA/Body 'MU'
-Property 'TYPE' = (String) SATELLITE
-Property 'MASS' = (Long) 1627457010254362480
-Property 'AT' = (String) EARINSIEJA
-Property 'AYP' = (String) LYUNGIBUYBEVO
-Property 'CXUX' = (String) DIXUAPUUXVAKOO
+NEW SYSTEM
+Stars / 3:
+	Vomiqes / (mass) 90362.63102810153 / (density) 25838.289237497826 / (diameter) 12875.201057841346 / (distance) 55102.593415064555
 
-Total mass equals to 2.061519465572956E20
+	Qofimihybuq / (mass) 20878.099695744902 / (density) 27095.33093219194 / (diameter) 41690.84321253739 / (distance) 10013.37389169662
+
+	Seraveduhonu / (mass) 44905.49972878774 / (density) 91901.23082937502 / (diameter) 19247.285154853158 / (distance) 95047.53488144101
+
+Planets / 7:
+		Ebonovuryqeqiv / 82404.66986474294 / 83684.7344271225 / 51222.0449226799 / 75775.52311249016
+			Satellites / 1:
+			Wypop / (mass) 38811.256620453234 / (density) 67895.19904018645 / (diameter) 46755.322663996194 / (distance) 15139.604924124546
+
+
+		Molizilylyxil / 42930.165147395266 / 67220.06765787149 / 86158.88849221375 / 84725.52559656098
+			Satellites / 2:
+			Ijuhusyv / (mass) 79818.2082634114 / (density) 11210.741087729497 / (diameter) 71326.61590932717 / (distance) 46379.939298038764
+
+			Ojuga / (mass) 36513.848474454615 / (density) 99085.77340019634 / (diameter) 53703.538427682055 / (distance) 78456.71062893643
+
+
+		Atiremykunimog / 19374.547539015606 / 65803.2100530403 / 19482.85117562662 / 29959.77097320262
+			Satellites / 3:
+			Naqebapuvo / (mass) 91083.61338204103 / (density) 13300.094521099752 / (diameter) 56136.0011993544 / (distance) 30312.00309588715
+
+			Fulafimoha / (mass) 62228.70901678201 / (density) 10835.329318278722 / (diameter) 85051.94487719146 / (distance) 90394.40241436257
+
+			Qupaf / (mass) 44042.072216045155 / (density) 22919.399654590205 / (diameter) 87616.24061134964 / (distance) 25747.273064463305
+
+
+		Jibolu / 24298.4228611965 / 68123.0641235091 / 52956.07542663348 / 67563.90219802194
+			Satellites / 4:
+			Nutawu / (mass) 27960.307424802897 / (density) 85022.42823739252 / (diameter) 10778.670416369161 / (distance) 71753.10987762839
+
+			Pakyfynaqar / (mass) 56856.470808633116 / (density) 27677.54193475557 / (diameter) 89809.40253537633 / (distance) 99520.89567746397
+
+			Ycikulusymumoc / (mass) 75071.98901158609 / (density) 88184.78527258142 / (diameter) 73899.23136474978 / (distance) 70235.45910510645
+
+			Golerota / (mass) 80901.70396898747 / (density) 65629.96559023269 / (diameter) 54543.07087951707 / (distance) 13126.834970149806
+
+
+		Qycodaja / 37081.36466474349 / 69791.57665774245 / 70595.52556836331 / 80922.44017145988
+			Satellites / 1:
+			Gibafu / (mass) 19339.576616940456 / (density) 47511.73832272019 / (diameter) 78471.72123374761 / (distance) 84767.12817014406
+
+
+		Esygahegepaxo / 16474.408262132496 / 13861.447715813987 / 64254.00066812798 / 15022.587615650884
+			Satellites / 3:
+			Tebajimihal / (mass) 60319.38220953891 / (density) 34360.57735452417 / (diameter) 70727.45725396677 / (distance) 92971.7339622969
+
+			Gurakycawyhy / (mass) 93809.85998546067 / (density) 92555.69038372076 / (diameter) 15362.946584156074 / (distance) 88071.3391910204
+
+			Izodovibilam / (mass) 66115.50484161351 / (density) 86822.16356140752 / (diameter) 68354.23650114462 / (distance) 84922.58522698496
+
+
+		Vyvipaqexibybu / 12563.44342665327 / 25013.62674380058 / 39738.637949970835 / 20642.01213937418
+			Satellites / 3:
+			Ivedufyp / (mass) 31159.19299804767 / (density) 80736.16532312009 / (diameter) 85266.6083404111 / (distance) 63042.9663383681
+
+			Kykapeb / (mass) 65379.6049045054 / (density) 78455.22129410676 / (diameter) 39194.61888833056 / (distance) 39421.570486771656
+
+			Hozobu / (mass) 43702.22516859936 / (density) 11412.606379501909 / (diameter) 21331.187038594522 / (distance) 34173.13426268195
+
+
+
 
 Process finished with exit code 0
