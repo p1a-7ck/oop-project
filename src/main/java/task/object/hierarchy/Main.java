@@ -1,13 +1,11 @@
 package task.object.hierarchy;
 
-import task.object.hierarchy.entity.complex.Complex;
+import task.object.hierarchy.entity.body.BodiesAggregator;
 import task.object.hierarchy.service.factory.BodyFactory;
 import task.object.hierarchy.service.factory.NameFactory;
 import task.object.hierarchy.service.factory.PropertyArrayFactory;
 import task.object.hierarchy.service.factory.SystemFactory;
-import task.object.hierarchy.service.statistics.MassMultiplierC;
 import task.object.hierarchy.service.statistics.Statistics;
-import task.object.hierarchy.service.statistics.StatisticsImpl;
 
 /**
  * Created by P1A-7CK on 30.06.2016.
@@ -47,12 +45,12 @@ public class Main {
         systemFactory.setMaxEachPlanetSatelliteNumber(10);
         systemFactory.setMinEachPlanetSatelliteNumber(0);
 
-        Complex complex = systemFactory.createRandomSystem(bodyFactory, propertyArrayFactory);
+        BodiesAggregator bodiesAggregator = systemFactory.createRandomSystem(bodyFactory, propertyArrayFactory);
 
-        System.out.println(complex);
+        System.out.println(bodiesAggregator);
 
         Statistics statistics = new Statistics();
-        System.out.println("Star System '" + complex.getName() + "' total mass equals to " + statistics.multiplyMass(complex));
+        System.out.println("Star System '" + bodiesAggregator.getName() + "' total mass equals to " + statistics.multiplyMass(bodiesAggregator));
 
         System.out.println("Not A Star System total mass equals to " + statistics.multiplyMass(bodyFactory));
 

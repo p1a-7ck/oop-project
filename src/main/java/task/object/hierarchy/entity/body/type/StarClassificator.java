@@ -1,4 +1,4 @@
-package task.object.hierarchy.entity.body.Star;
+package task.object.hierarchy.entity.body.type;
 
 /**
  * Created by P1A-7CK on 06.07.2016.

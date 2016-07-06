@@ -2,8 +2,8 @@ package task.object.hierarchy.service.factory;
 
 import task.object.hierarchy.entity.body.Planet;
 import task.object.hierarchy.entity.body.Satellite;
-import task.object.hierarchy.entity.body.Star.Star;
-import task.object.hierarchy.entity.complex.Complex;
+import task.object.hierarchy.entity.body.Star;
+import task.object.hierarchy.entity.body.BodiesAggregator;
 
 import java.util.Random;
 
@@ -22,16 +22,16 @@ public class SystemFactory {
     public SystemFactory() {
     }
 
-    public Complex createRandomSystem(BodyFactory bodyFactory, PropertyArrayFactory propertyArrayFactory) {
+    public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyArrayFactory propertyArrayFactory) {
         ClassificationFactory classificationFactory = new ClassificationFactory();
         Random random = new Random();
 
-        Complex complex = new Complex();
-        complex.setName(nameFactory.createRandomName());
+        BodiesAggregator bodiesAggregator = new BodiesAggregator();
+        bodiesAggregator.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++) {
             Star star = (Star) bodyFactory.createRandomAstralBody(new Star(), propertyArrayFactory);
             star.setStarClassificator(classificationFactory.createRandomClassificator());
-            complex.addStar(star);
+            bodiesAggregator.addStar(star);
         }
         for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++) {
             Planet planet = (Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyArrayFactory);
@@ -39,9 +39,9 @@ public class SystemFactory {
                 Satellite satellite = (Satellite) bodyFactory.createRandomAstralBody(new Satellite(), propertyArrayFactory);
                 planet.setSatelliteClone(planet.addSatellite() - 1, satellite);
             }
-            complex.addPlanet(planet);
+            bodiesAggregator.addPlanet(planet);
         }
-        return complex;
+        return bodiesAggregator;
     }
 
     public int getMinStarNumber() {

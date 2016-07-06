@@ -1,6 +1,6 @@
-package task.object.hierarchy.entity.body.Star;
+package task.object.hierarchy.entity.body;
 
-import task.object.hierarchy.entity.body.AstralBody;
+import task.object.hierarchy.entity.body.type.StarClassificator;
 
 /**
  * Created by P1A-7CK on 06.07.2016.

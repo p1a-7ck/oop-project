@@ -1,6 +1,6 @@
 package task.object.hierarchy.service.factory;
 
-import task.object.hierarchy.entity.body.Star.StarClassificator;
+import task.object.hierarchy.entity.body.type.StarClassificator;
 
 import java.util.Random;
 
