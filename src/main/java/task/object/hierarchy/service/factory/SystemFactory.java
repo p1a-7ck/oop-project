@@ -22,21 +22,21 @@ public class SystemFactory {
     public SystemFactory() {
     }
 
-    public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyArrayFactory propertyArrayFactory) {
+    public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyFactory propertyFactory) {
         ClassificationFactory classificationFactory = new ClassificationFactory();
         Random random = new Random();
 
         BodiesAggregator bodiesAggregator = new BodiesAggregator();
         bodiesAggregator.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++) {
-            Star star = (Star) bodyFactory.createRandomAstralBody(new Star(), propertyArrayFactory);
-            star.setStarClassificator(classificationFactory.createRandomClassificator());
+            Star star = (Star) bodyFactory.createRandomAstralBody(new Star(), propertyFactory);
+            //star.setStarClassificator(classificationFactory.createRandomClassificator());
             bodiesAggregator.addStar(star);
         }
         for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++) {
-            Planet planet = (Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyArrayFactory);
+            Planet planet = (Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyFactory);
             for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) + this.minEachPlanetSatelliteNumber; s++) {
-                Satellite satellite = (Satellite) bodyFactory.createRandomAstralBody(new Satellite(), propertyArrayFactory);
+                Satellite satellite = (Satellite) bodyFactory.createRandomAstralBody(new Satellite(), propertyFactory);
                 planet.setSatelliteClone(planet.addSatellite() - 1, satellite);
             }
             bodiesAggregator.addPlanet(planet);

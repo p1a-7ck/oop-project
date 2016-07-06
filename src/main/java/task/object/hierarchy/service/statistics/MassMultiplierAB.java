@@ -9,7 +9,7 @@ import task.object.hierarchy.entity.body.Planet;
 public class MassMultiplierAB {
     public MassMultiplierAB() {
     }
-
+/*
     public double multiplyMass(Object entity) {
         AstralBody astralBody = (AstralBody) entity;
         double mass = astralBody.getMass();
@@ -20,4 +20,5 @@ public class MassMultiplierAB {
         }
         return mass;
     }
+    */
 }

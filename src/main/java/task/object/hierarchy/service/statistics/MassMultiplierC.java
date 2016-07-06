@@ -8,7 +8,7 @@ import task.object.hierarchy.entity.body.BodiesAggregator;
 public class MassMultiplierC {
     public MassMultiplierC() {
     }
-
+/*
     public double multiplyMass(Object entity) {
         BodiesAggregator bodiesAggregator = (BodiesAggregator) entity;
         MassMultiplierAB massMultiplierAB = new MassMultiplierAB();
@@ -20,5 +20,5 @@ public class MassMultiplierC {
             mass += massMultiplierAB.multiplyMass(bodiesAggregator.getPlanet(i));
         }
         return mass;
-    }
+    }*/
 }

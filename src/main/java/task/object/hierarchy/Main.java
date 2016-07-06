@@ -1,29 +1,60 @@
 package task.object.hierarchy;
 
-import task.object.hierarchy.entity.body.BodiesAggregator;
+import task.object.hierarchy.entity.EntitySimpleImpl;
+import task.object.hierarchy.entity.body.AstralBody;
+import task.object.hierarchy.entity.body.Star;
 import task.object.hierarchy.service.factory.BodyFactory;
 import task.object.hierarchy.service.factory.NameFactory;
-import task.object.hierarchy.service.factory.PropertyArrayFactory;
-import task.object.hierarchy.service.factory.SystemFactory;
-import task.object.hierarchy.service.statistics.Statistics;
+import task.object.hierarchy.service.factory.PropertyFactory;
 
 /**
  * Created by P1A-7CK on 30.06.2016.
  */
 public class Main {
     public static void main(String[] args) {
+
         NameFactory nameFactory = new NameFactory();
         nameFactory.setNameMaxLength(15);
         nameFactory.setNameMinLength(5);
 
-        PropertyArrayFactory propertyArrayFactory = new PropertyArrayFactory();
-        propertyArrayFactory.nameFactory = nameFactory;
-        propertyArrayFactory.setMaxPropertiesNumber(25);
-        propertyArrayFactory.setMinPropertiesNumber(0);
-        propertyArrayFactory.setMaxNumericValue(10000);
-        propertyArrayFactory.setMinNumericValue(-10000);
-        propertyArrayFactory.setMaxStringLength(50);
-        propertyArrayFactory.setMinStringLength(10);
+        PropertyFactory propertyFactory = new PropertyFactory();
+        propertyFactory.nameFactory = nameFactory;
+        propertyFactory.setMaxPropertiesNumber(25);
+        propertyFactory.setMinPropertiesNumber(0);
+        propertyFactory.setMaxNumericValue(10000);
+        propertyFactory.setMinNumericValue(-10000);
+        propertyFactory.setMaxStringLength(50);
+        propertyFactory.setMinStringLength(10);
+
+        BodyFactory bodyFactory = new BodyFactory();
+        bodyFactory.nameFactory = nameFactory;
+        bodyFactory.setMaxMass(100000);
+        bodyFactory.setMinMass(10000);
+        bodyFactory.setMaxDensity(100000);
+        bodyFactory.setMinDensity(10000);
+        bodyFactory.setMaxDiameter(100000);
+        bodyFactory.setMinDiameter(10000);
+        bodyFactory.setMaxDistanceFromCenter(100000);
+        bodyFactory.setMinDistanceFromCenter(10000);
+
+        EntitySimpleImpl Entity = new Star();
+        bodyFactory.createRandomAstralBody((AstralBody) Entity, propertyFactory);
+
+        System.out.println(Entity);
+
+        /*
+        NameFactory nameFactory = new NameFactory();
+        nameFactory.setNameMaxLength(15);
+        nameFactory.setNameMinLength(5);
+
+        PropertyFactory propertyFactory = new PropertyFactory();
+        propertyFactory.nameFactory = nameFactory;
+        propertyFactory.setMaxPropertiesNumber(25);
+        propertyFactory.setMinPropertiesNumber(0);
+        propertyFactory.setMaxNumericValue(10000);
+        propertyFactory.setMinNumericValue(-10000);
+        propertyFactory.setMaxStringLength(50);
+        propertyFactory.setMinStringLength(10);
 
         BodyFactory bodyFactory = new BodyFactory();
         bodyFactory.nameFactory = nameFactory;
@@ -45,7 +76,7 @@ public class Main {
         systemFactory.setMaxEachPlanetSatelliteNumber(10);
         systemFactory.setMinEachPlanetSatelliteNumber(0);
 
-        BodiesAggregator bodiesAggregator = systemFactory.createRandomSystem(bodyFactory, propertyArrayFactory);
+        BodiesAggregator bodiesAggregator = systemFactory.createRandomSystem(bodyFactory, propertyFactory);
 
         System.out.println(bodiesAggregator);
 
@@ -53,6 +84,6 @@ public class Main {
         System.out.println("Star System '" + bodiesAggregator.getName() + "' total mass equals to " + statistics.multiplyMass(bodiesAggregator));
 
         System.out.println("Not A Star System total mass equals to " + statistics.multiplyMass(bodyFactory));
-
+        */
     }
 }

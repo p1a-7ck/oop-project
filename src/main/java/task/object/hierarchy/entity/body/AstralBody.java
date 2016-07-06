@@ -1,17 +1,21 @@
 package task.object.hierarchy.entity.body;
 
-import task.object.hierarchy.entity.property.PropertyArray;
+import task.object.hierarchy.entity.EntitySimpleImpl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public abstract class AstralBody {
+public abstract class AstralBody implements EntitySimpleImpl {
     private String name;
     private double mass;
     private double density;
     private double diameter;
     private double distanceFromCenter;
-    private PropertyArray propertyArray = new PropertyArray();
+    private Map<String, Object> properties = new HashMap<String, Object>();
 
     public String getName() {
         return name;
@@ -53,16 +57,41 @@ public abstract class AstralBody {
         this.distanceFromCenter = distanceFromCenter;
     }
 
-    public PropertyArray getPropertyArray() {
-        return propertyArray;
+    public <T> T getProperty(String name) {
+        if (!properties.containsKey(name))
+            throw new IllegalArgumentException("Property with name '" + name + "' does not exist");
+        return (T) properties.get(name);
     }
 
-    public boolean isNoSatellitePossibility() {
-        return true;
+    public <T> void setProperty(String name, T value) {
+        if (!properties.containsKey(name))
+            throw new IllegalArgumentException("Property with name '" + name + "' does not exist");
+        if (!properties.get(name).getClass().equals(value.getClass()))
+            throw new IllegalArgumentException("Property '" + name + "' value have another type");
+        properties.put(name, value);
     }
 
-    public int countSatellites() {
-        return 0;
+    public int countProperties() {
+        return properties.size();
+    }
+
+    public ArrayList<String> getPropertiesNames() {
+        ArrayList<String> propertiesNames = new ArrayList<String>();
+        for (Map.Entry<String, Object> entry : properties.entrySet())
+            propertiesNames.add(entry.getKey());
+        return propertiesNames;
+    }
+
+    public <T> void addProperty(String name, T value) {
+        if (properties.containsKey(name))
+            throw new IllegalArgumentException("Property with name '" + name + "' already exist");
+        properties.put(name, value);
+    }
+
+    public void removeProperty(String name) {
+        if (!properties.containsKey(name))
+            throw new IllegalArgumentException("Property with name '" + name + "' does not exist");
+        properties.remove(name);
     }
 
     @Override
@@ -73,7 +102,7 @@ public abstract class AstralBody {
                 ", density=" + density +
                 ", diameter=" + diameter +
                 ", distanceFromCenter=" + distanceFromCenter +
-                ", propertyArray=" + propertyArray +
+                ", propertiesNames=" + getPropertiesNames() +
                 '}';
     }
 }

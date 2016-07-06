@@ -1,13 +1,15 @@
 package task.object.hierarchy.service.factory;
 
-import task.object.hierarchy.entity.property.PropertyArray;
+//import task.object.hierarchy.entity.property.PropertyArray;
+
+import task.object.hierarchy.entity.body.AstralBody;
 
 import java.util.Random;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class PropertyArrayFactory {
+public class PropertyFactory {
     public NameFactory nameFactory = new NameFactory();
     private int minPropertiesNumber;
     private int maxPropertiesNumber;
@@ -16,10 +18,10 @@ public class PropertyArrayFactory {
     private int minStringLength;
     private int maxStringLength;
 
-    public PropertyArrayFactory() {
+    public PropertyFactory() {
     }
 
-    public void createRandomPropertyArray(PropertyArray propertyArray) {
+    public void createRandomProperty(AstralBody astralBody) {
         NameFactory stringFactory = new NameFactory();
         Random random = new Random();
 
@@ -29,19 +31,19 @@ public class PropertyArrayFactory {
             try {
                 switch (random.nextInt(4)) {
                     case 0: //int
-                        propertyArray.addProperty(nameFactory.createRandomName(),
+                        astralBody.addProperty(nameFactory.createRandomName(),
                                 random.nextInt(this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 1: //long
-                        propertyArray.addProperty(nameFactory.createRandomName(),
+                        astralBody.addProperty(nameFactory.createRandomName(),
                                 random.nextLong() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 2: //double
-                        propertyArray.addProperty(nameFactory.createRandomName(),
+                        astralBody.addProperty(nameFactory.createRandomName(),
                                 random.nextDouble() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 3: //String
-                        propertyArray.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
+                        astralBody.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Not unique random property naming exception catched");
+                System.out.println("Not unique random property naming exception");
             }
         }
     }

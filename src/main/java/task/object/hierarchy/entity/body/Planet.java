@@ -88,16 +88,6 @@ public class Planet extends AstralBody {
     }
 
     @Override
-    public boolean isNoSatellitePossibility() {
-        return false;
-    }
-
-    @Override
-    public int countSatellites() {
-        return satellites.size();
-    }
-
-    @Override
     public String toString() {
         return "Planet{" +
                 "name='" + super.getName() + '\'' +
@@ -105,7 +95,7 @@ public class Planet extends AstralBody {
                 ", density=" + super.getDensity() +
                 ", diameter=" + super.getDiameter() +
                 ", distanceFromCenter=" + super.getDistanceFromCenter() +
-                ", propertyArray=" + super.getPropertyArray() +
+                ", propertyNames=" + super.getPropertiesNames() +
                 ", satellites = " + satellites +
                 '}';
     }

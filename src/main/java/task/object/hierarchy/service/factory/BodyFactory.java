@@ -21,14 +21,22 @@ public class BodyFactory {
     public BodyFactory() {
     }
 
-    public AstralBody createRandomAstralBody(AstralBody astralBody, PropertyArrayFactory propertyArrayFactory) {
+    public AstralBody createRandomAstralBody(AstralBody astralBody, PropertyFactory propertyFactory) {
         Random random = new Random();
         astralBody.setName(nameFactory.createRandomName());
         astralBody.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
         astralBody.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
         astralBody.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
         astralBody.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) + this.minDistanceFromCenter);
-        propertyArrayFactory.createRandomPropertyArray(astralBody.getPropertyArray());
+        if (astralBody instanceof Star) {
+            Star.SPECTRAL_CLASS[] spectralClass = Star.SPECTRAL_CLASS.values();
+            Star.SIZE_PREFIX[] sizePrefices = Star.SIZE_PREFIX.values();
+            Star.EMITION_SUFFIX[] emitionSuffices = Star.EMITION_SUFFIX.values();
+            ((Star) astralBody).setSpectralClass(spectralClass[random.nextInt(16)]);
+            ((Star) astralBody).setSizePrefix(sizePrefices[random.nextInt(8)]);
+            ((Star) astralBody).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
+        }
+        propertyFactory.createRandomProperty(astralBody);
         return astralBody;
     }
 

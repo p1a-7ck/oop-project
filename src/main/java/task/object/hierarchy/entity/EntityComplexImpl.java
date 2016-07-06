@@ -5,7 +5,7 @@ import task.object.hierarchy.entity.body.AstralBody;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public interface EntityComplex {
+public interface EntityComplexImpl {
     boolean haveSubEntities();
     int countSubEntities();
     void addSubEntity(int index, AstralBody subEntity);

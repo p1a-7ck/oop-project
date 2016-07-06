@@ -11,13 +11,14 @@ public class Statistics implements StatisticsImpl {
     }
 
     public double multiplyMass(Object entity) {
+        /*
         if (entity instanceof BodiesAggregator) {
             MassMultiplierC massMultiplierC = new MassMultiplierC();
             return massMultiplierC.multiplyMass(entity);
         } else if (entity instanceof AstralBody) {
             MassMultiplierAB massMultiplierAB = new MassMultiplierAB();
             return massMultiplierAB.multiplyMass(entity);
-        }
+        }*/
         throw new IllegalArgumentException("Object should be BodiesAggregator or AstralBody");
     }
 }
