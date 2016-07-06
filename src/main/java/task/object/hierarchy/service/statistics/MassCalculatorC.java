@@ -10,8 +10,14 @@ public class MassCalculatorC extends StatisticsService{
     }
 
     public double getMass(Complex complex) {
+        MassCalculatorAB massCalculatorAB = new MassCalculatorAB();
         double mass = 0;
-
+        for (int i = 0; i < complex.countStars(); i++) {
+            mass += massCalculatorAB.getMass(complex.getStar(i));
+        }
+        for (int i = 0; i < complex.countPlanets(); i++) {
+            mass += massCalculatorAB.getMass(complex.getPlanet(i));
+        }
         return mass;
     }
 }

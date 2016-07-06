@@ -73,6 +73,14 @@ public class Complex {
         this.planets.remove(index);
     }
 
+    public int countStars() {
+        return stars.size();
+    }
+
+    public int countPlanets() {
+        return planets.size();
+    }
+
     @Override
     public String toString() {
         return "Complex{" +

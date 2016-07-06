@@ -5,6 +5,7 @@ import task.object.hierarchy.service.factory.BodyFactory;
 import task.object.hierarchy.service.factory.NameFactory;
 import task.object.hierarchy.service.factory.PropertyArrayFactory;
 import task.object.hierarchy.service.factory.SystemFactory;
+import task.object.hierarchy.service.statistics.MassCalculatorC;
 
 /**
  * Created by P1A-7CK on 30.06.2016.
@@ -47,5 +48,9 @@ public class Main {
         Complex complex = systemFactory.createRandomSystem(bodyFactory, propertyArrayFactory);
 
         System.out.println(complex);
+
+        MassCalculatorC massCalculatorC = new MassCalculatorC();
+        System.out.println("Star System '" + complex.getName() + "' total mass equals to " + massCalculatorC.getMass(complex));
+        
     }
 }
