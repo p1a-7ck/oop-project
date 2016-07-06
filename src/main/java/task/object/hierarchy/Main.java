@@ -50,14 +50,17 @@ public class Main {
 
         BodiesAggregator bodiesAggregator = aggregatorFactory.createRandomSystem(bodyFactory, propertyFactory);
 
+        System.out.println("\nCREATED ENTITIES");
         System.out.println(bodiesAggregator);
 
         StatisticsImpl statistics = new Statistics();
-        System.out.println(statistics.multiplyMass(bodiesAggregator));
+        System.out.println("\nTOTAL MASS OF '" + bodiesAggregator.getName() + "' EQUALS TO " + statistics.multiplyMass(bodiesAggregator));
 
+        System.out.println("\nALL NAMES OF STARS/PLANETS/SATELLITES");
         System.out.println(statistics.getBodiesNamesSorted(bodiesAggregator));
 
+        System.out.println("\nALL NAMES OF STARS/PLANETS/SATELLITES (SHOULD BE LIFE");
         System.out.println(statistics.getBodiesNamesWithLifeSorted(bodiesAggregator,
-                500, 10000, 1000, 10000, 1000, 10000));
+                10000, 100000, 10000, 100000, 10000, 100000));
     }
 }
