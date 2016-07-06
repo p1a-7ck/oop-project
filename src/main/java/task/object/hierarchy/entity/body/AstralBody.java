@@ -67,7 +67,13 @@ public abstract class AstralBody {
 
     @Override
     public String toString() {
-        return this.name + " / (mass) " + this.mass + " / (density) " + this.density +
-                " / (diameter) " + this.diameter + " / (distance) " + this.distanceFromCenter + "\n";
+        return "AstralBody{" +
+                "name='" + name + '\'' +
+                ", mass=" + mass +
+                ", density=" + density +
+                ", diameter=" + diameter +
+                ", distanceFromCenter=" + distanceFromCenter +
+                ", propertyArray=" + propertyArray +
+                '}';
     }
 }

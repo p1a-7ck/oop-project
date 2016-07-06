@@ -42,4 +42,13 @@ public class StarClassificator {
     public String getClassificationName() {
         return this.sizePrefix.toString() + this.spectralClass.toString() + this.emitionSuffix.toString();
     }
+
+    @Override
+    public String toString() {
+        return "StarClassificator{" +
+                "spectralClass=" + spectralClass +
+                ", sizePrefix=" + sizePrefix +
+                ", emitionSuffix=" + emitionSuffix +
+                '}';
+    }
 }

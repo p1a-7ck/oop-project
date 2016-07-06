@@ -1,31 +1,46 @@
-package task.object.hierarchy.service;
+package task.object.hierarchy.service.factory;
 
 import java.util.Random;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-class NameFactory {
+public class NameFactory {
     static final int MIN_CHAR_UPPER = 65;
     static final int MAX_CHAR_UPPER = 90;
     static final int MIN_CHAR_LOWER = 97;
     static final int MAX_CHAR_LOWER = 122;
     static final int[] VOWEL_CHARS = {97, 101, 105, 111, 117, 121};
 
-    private int length;
+    private int nameMinLength = 1;
+    private int nameMaxLength = 1;
     private Random random = new Random();
 
     public NameFactory() {
     }
 
-    public int getLength() {
-        return this.length;
+    public int getNameMinLength() {
+        return nameMinLength;
     }
 
-    public void setLength(int length) {
-        if (length < 0)
-            throw new IllegalArgumentException("Name's length should be more than or equal to zero");
-        this.length = length;
+    public void setNameMinLength(int nameMinLength) {
+        if (nameMinLength < 0)
+            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
+        if (nameMinLength > this.nameMaxLength)
+            throw new IllegalArgumentException("Name's minimum length should be less than or equal to maximum");
+        this.nameMinLength = nameMinLength;
+    }
+
+    public int getNameMaxLength() {
+        return nameMaxLength;
+    }
+
+    public void setNameMaxLength(int nameMaxLength) {
+        if (nameMaxLength < 0)
+            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
+        if (nameMaxLength < this.nameMinLength)
+            throw new IllegalArgumentException("Name's maximum length should be more than or equal to minimum");
+        this.nameMaxLength = nameMaxLength;
     }
 
     private boolean isVowel(int charCode) {
@@ -46,7 +61,7 @@ class NameFactory {
         char c;
         String name = "";
 
-        for (int i = 0; i < this.length; i++) {
+        for (int i = 0; i < random.nextInt(this.nameMaxLength - this.nameMinLength) + this.nameMinLength; i++) {
             c = nextRandomChar(i == 0, lastVowel);
             lastVowel = isVowel(c);
             name = String.format("%s%s", name, c);

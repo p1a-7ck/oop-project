@@ -75,13 +75,11 @@ public class Complex {
 
     @Override
     public String toString() {
-        String o = "";
-
-        o += "Stars / " + this.stars.size() + ":\n";
-        for (Star star : this.stars) o += "\t" + star + "\n";
-        o += "Planets / " + this.planets.size() + ":\n";
-        for (Planet planet : this.planets) o += "\t\t" + planet + "\n";
-        return this.name + "\n" + o;
+        return "Complex{" +
+                "name='" + name + '\'' +
+                ", stars=" + stars +
+                ", planets=" + planets +
+                '}';
     }
 
 }

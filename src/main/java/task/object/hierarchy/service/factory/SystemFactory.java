@@ -1,4 +1,4 @@
-package task.object.hierarchy.service;
+package task.object.hierarchy.service.factory;
 
 import task.object.hierarchy.entity.body.Planet;
 import task.object.hierarchy.entity.body.Satellite;
@@ -11,8 +11,7 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class SystemFactory {
-    private int nameMinLength;
-    private int nameMaxLength;
+    public NameFactory nameFactory = new NameFactory();
     private int minStarNumber;
     private int maxStarNumber;
     private int minPlanetNumber;
@@ -27,8 +26,6 @@ public class SystemFactory {
         ClassificationFactory classificationFactory = new ClassificationFactory();
         Random random = new Random();
 
-        NameFactory nameFactory = new NameFactory();
-        nameFactory.setLength(random.nextInt(this.nameMaxLength - this.nameMinLength) + this.nameMinLength);
         Complex complex = new Complex();
         complex.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++) {
@@ -45,30 +42,6 @@ public class SystemFactory {
             complex.addPlanet(planet);
         }
         return complex;
-    }
-
-    public int getNameMinLength() {
-        return nameMinLength;
-    }
-
-    public void setNameMinLength(int nameMinLength) {
-        if (nameMinLength < 0)
-            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
-        if (nameMinLength > this.nameMaxLength)
-            throw new IllegalArgumentException("Name's minimum length should be less than or equal to maximum");
-        this.nameMinLength = nameMinLength;
-    }
-
-    public int getNameMaxLength() {
-        return nameMaxLength;
-    }
-
-    public void setNameMaxLength(int nameMaxLength) {
-        if (nameMaxLength < 0)
-            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
-        if (nameMaxLength < this.nameMinLength)
-            throw new IllegalArgumentException("Name's maximum length should be more than or equal to minimum");
-        this.nameMaxLength = nameMaxLength;
     }
 
     public int getMinStarNumber() {

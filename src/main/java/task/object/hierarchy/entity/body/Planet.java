@@ -99,12 +99,14 @@ public class Planet extends AstralBody {
 
     @Override
     public String toString() {
-        String o = "";
-
-        o += "\t\t\tSatellites / " + this.satellites.size() + ":\n";
-        for (Satellite satellite: this.satellites) o += "\t\t\t" + satellite + "\n";
-
-        return super.getName() + " / " + super.getMass() + " / " + this.getDensity() +
-                " / " + this.getDiameter() + " / " + this.getDistanceFromCenter() + "\n" + o;
+        return "Planet{" +
+                "name='" + super.getName() + '\'' +
+                ", mass=" + super.getMass() +
+                ", density=" + super.getDensity() +
+                ", diameter=" + super.getDiameter() +
+                ", distanceFromCenter=" + super.getDistanceFromCenter() +
+                ", propertyArray=" + super.getPropertyArray() +
+                ", satellites = " + satellites +
+                '}';
     }
 }

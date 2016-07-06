@@ -1,4 +1,4 @@
-package task.object.hierarchy.service;
+package task.object.hierarchy.service.factory;
 
 import task.object.hierarchy.entity.body.Star.StarClassificator;
 

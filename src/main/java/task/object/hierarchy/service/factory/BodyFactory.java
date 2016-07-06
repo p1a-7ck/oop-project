@@ -1,7 +1,6 @@
-package task.object.hierarchy.service;
+package task.object.hierarchy.service.factory;
 
 import task.object.hierarchy.entity.body.*;
-import task.object.hierarchy.entity.property.PropertyArray;
 
 import java.util.Random;
 
@@ -9,8 +8,7 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class BodyFactory {
-    private int nameMinLength;
-    private int nameMaxLength;
+    public NameFactory nameFactory = new NameFactory();
     private double minMass;
     private double maxMass;
     private double minDensity;
@@ -25,8 +23,6 @@ public class BodyFactory {
 
     public AstralBody createRandomAstralBody(AstralBody astralBody, PropertyArrayFactory propertyArrayFactory) {
         Random random = new Random();
-        NameFactory nameFactory = new NameFactory();
-        nameFactory.setLength(random.nextInt(this.nameMaxLength - this.nameMinLength) + this.nameMinLength);
         astralBody.setName(nameFactory.createRandomName());
         astralBody.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
         astralBody.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
@@ -34,30 +30,6 @@ public class BodyFactory {
         astralBody.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) + this.minDistanceFromCenter);
         propertyArrayFactory.createRandomPropertyArray(astralBody.getPropertyArray());
         return astralBody;
-    }
-
-    public int getNameMinLength() {
-        return nameMinLength;
-    }
-
-    public void setNameMinLength(int nameMinLength) {
-        if (nameMinLength < 0)
-            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
-        if (nameMinLength > this.nameMaxLength)
-            throw new IllegalArgumentException("Name's minimum length should be less than or equal to maximum");
-        this.nameMinLength = nameMinLength;
-    }
-
-    public int getNameMaxLength() {
-        return nameMaxLength;
-    }
-
-    public void setNameMaxLength(int nameMaxLength) {
-        if (nameMaxLength < 0)
-            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
-        if (nameMaxLength < this.nameMinLength)
-            throw new IllegalArgumentException("Name's maximum length should be more than or equal to minimum");
-        this.nameMaxLength = nameMaxLength;
     }
 
     public double getMinMass() {

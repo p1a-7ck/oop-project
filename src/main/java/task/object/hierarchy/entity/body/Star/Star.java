@@ -18,4 +18,18 @@ public class Star extends AstralBody {
     public void setStarClassificator(StarClassificator starClassificator) {
         this.starClassificator = starClassificator;
     }
+
+    @Override
+    public String toString() {
+        return "Star{" +
+                "name='" + super.getName() + '\'' +
+                ", starClassificator=" + starClassificator +
+                ", mass=" + super.getMass() +
+                ", density=" + super.getDensity() +
+                ", diameter=" + super.getDiameter() +
+                ", distanceFromCenter=" + super.getDistanceFromCenter() +
+                ", propertyArray=" + super.getPropertyArray() +
+                '}';
+
+    }
 }

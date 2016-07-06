@@ -1,4 +1,4 @@
-package task.object.hierarchy.service;
+package task.object.hierarchy.service.factory;
 
 import task.object.hierarchy.entity.property.PropertyArray;
 
@@ -8,8 +8,7 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class PropertyArrayFactory {
-    private int nameMinLength = 1;
-    private int nameMaxLength = 1;
+    public NameFactory nameFactory = new NameFactory();
     private int minPropertiesNumber;
     private int maxPropertiesNumber;
     private int minNumericValue;
@@ -21,56 +20,30 @@ public class PropertyArrayFactory {
     }
 
     public void createRandomPropertyArray(PropertyArray propertyArray) {
-        String propertyName;
+        NameFactory stringFactory = new NameFactory();
         Random random = new Random();
-        NameFactory nameFactory = new NameFactory();
+
+        stringFactory.setNameMaxLength(this.maxStringLength);
+        stringFactory.setNameMinLength(this.minStringLength);
         for (int i = 0; i < random.nextInt(this.maxPropertiesNumber - this.minPropertiesNumber) + this.minPropertiesNumber; i++) {
-            nameFactory.setLength(random.nextInt(this.nameMaxLength - this.nameMinLength) + this.nameMinLength);
-            propertyName = nameFactory.createRandomName();
             try {
                 switch (random.nextInt(4)) {
                     case 0: //int
-                        propertyArray.addProperty(propertyName,
+                        propertyArray.addProperty(nameFactory.createRandomName(),
                                 random.nextInt(this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 1: //long
-                        propertyArray.addProperty(propertyName,
+                        propertyArray.addProperty(nameFactory.createRandomName(),
                                 random.nextLong() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 2: //double
-                        propertyArray.addProperty(propertyName,
+                        propertyArray.addProperty(nameFactory.createRandomName(),
                                 random.nextDouble() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
                     case 3: //String
-                        nameFactory.setLength(random.nextInt(this.maxStringLength - this.minStringLength) + this.minStringLength);
-                        propertyArray.addProperty(propertyName, nameFactory.createRandomName());
+                        propertyArray.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Randomly created property's name '" + propertyName + "' not unique");
+                System.out.println("Not unique random property naming exception catched");
             }
-
         }
-    }
-
-    public int getNameMinLength() {
-        return nameMinLength;
-    }
-
-    public void setNameMinLength(int nameMinLength) {
-        if (nameMinLength <= 0)
-            throw new IllegalArgumentException("Property name should be at least one symbol");
-        if (nameMinLength > this.nameMaxLength)
-            throw new IllegalArgumentException("Property name's minimum length should be less than or equal to maximum length");
-        this.nameMinLength = nameMinLength;
-    }
-
-    public int getNameMaxLength() {
-        return nameMaxLength;
-    }
-
-    public void setNameMaxLength(int nameMaxLength) {
-        if (nameMaxLength <= 0)
-            throw new IllegalArgumentException("Property name should be at least one symbol");
-        if (nameMaxLength < this.nameMinLength)
-            throw new IllegalArgumentException("Property name's maximum length should more than or equal to minimum length");
-        this.nameMaxLength = nameMaxLength;
     }
 
     public int getMinPropertiesNumber() {
