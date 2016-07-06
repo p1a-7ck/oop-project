@@ -1,13 +1,13 @@
 package task.object.hierarchy;
 
-import task.object.hierarchy.entity.EntitySimpleImpl;
-import task.object.hierarchy.entity.body.AstralBody;
 import task.object.hierarchy.entity.body.BodiesAggregator;
-import task.object.hierarchy.entity.body.Star;
 import task.object.hierarchy.service.factory.BodyFactory;
 import task.object.hierarchy.service.factory.NameFactory;
 import task.object.hierarchy.service.factory.PropertyFactory;
-import task.object.hierarchy.service.factory.SystemFactory;
+import task.object.hierarchy.service.factory.AggregatorFactory;
+import task.object.hierarchy.service.statistics.MassMultiplier;
+import task.object.hierarchy.service.statistics.Statistics;
+import task.object.hierarchy.service.statistics.StatisticsImpl;
 
 /**
  * Created by P1A-7CK on 30.06.2016.
@@ -41,22 +41,23 @@ public class Main {
         bodyFactory.setMaxEachPlanetSatelliteNumber(10);
         bodyFactory.setMinEachPlanetSatelliteNumber(0);
 
-        SystemFactory systemFactory = new SystemFactory();
-        systemFactory.nameFactory = nameFactory;
-        systemFactory.setMaxStarNumber(5);
-        systemFactory.setMinStarNumber(1);
-        systemFactory.setMaxPlanetNumber(15);
-        systemFactory.setMinPlanetNumber(5);
+        AggregatorFactory aggregatorFactory = new AggregatorFactory();
+        aggregatorFactory.nameFactory = nameFactory;
+        aggregatorFactory.setMaxStarNumber(5);
+        aggregatorFactory.setMinStarNumber(1);
+        aggregatorFactory.setMaxPlanetNumber(15);
+        aggregatorFactory.setMinPlanetNumber(5);
 
-        BodiesAggregator bodiesAggregator = systemFactory.createRandomSystem(bodyFactory, propertyFactory);
+        BodiesAggregator bodiesAggregator = aggregatorFactory.createRandomSystem(bodyFactory, propertyFactory);
 
         System.out.println(bodiesAggregator);
 
-        /*
-        Statistics statistics = new Statistics();
-        System.out.println("Star System '" + bodiesAggregator.getName() + "' total mass equals to " + statistics.multiplyMass(bodiesAggregator));
+        StatisticsImpl statistics = new Statistics();
+        System.out.println(statistics.multiplyMass(bodiesAggregator));
 
-        System.out.println("Not A Star System total mass equals to " + statistics.multiplyMass(bodyFactory));
-        */
+        System.out.println(statistics.getBodiesNamesSorted(bodiesAggregator));
+
+        System.out.println(statistics.getBodiesNamesWithLifeSorted(bodiesAggregator,
+                500, 10000, 1000, 10000, 1000, 10000));
     }
 }

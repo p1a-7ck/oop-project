@@ -57,6 +57,14 @@ public class Planet extends AstralBody implements EntitySimpleImpl, EntityComple
     }
 
     @Override
+    public double getMass(){
+        double mass = super.getMass();
+        for (Satellite satellite : this.satellites)
+            mass += satellite.getMass();
+        return mass;
+    }
+
+    @Override
     public String toString() {
         return "Planet{" +
                 "name='" + super.getName() + '\'' +

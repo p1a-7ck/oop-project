@@ -10,14 +10,14 @@ import java.util.Random;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class SystemFactory {
+public class AggregatorFactory {
     public NameFactory nameFactory = new NameFactory();
     private int minStarNumber;
     private int maxStarNumber;
     private int minPlanetNumber;
     private int maxPlanetNumber;
 
-    public SystemFactory() {
+    public AggregatorFactory() {
     }
 
     public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyFactory propertyFactory) {
@@ -26,9 +26,9 @@ public class SystemFactory {
         BodiesAggregator bodiesAggregator = new BodiesAggregator();
         bodiesAggregator.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++)
-            bodiesAggregator.addStar((Star) bodyFactory.createRandomAstralBody(new Star(), propertyFactory));
+            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomAstralBody(new Star(), propertyFactory));
         for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++)
-            bodiesAggregator.addPlanet((Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyFactory));
+            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomAstralBody(new Planet(), propertyFactory));
         return bodiesAggregator;
     }
 
