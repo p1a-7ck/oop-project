@@ -1,17 +1,15 @@
-package task.object.hierarchy.entity.body;
+package task.star.system.model.entity;
 
 import java.util.ArrayList;
 
-import task.object.hierarchy.entity.AggregatorImpl;
-
+import task.star.system.model.IAggregator;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class BodiesAggregator implements AggregatorImpl {
-    // single class for astral bodies aggregator, more preferable name is system, but it conflicts with core class System
+public class BodiesAggregator implements IAggregator {
     private String name;
-    private ArrayList<AstralBody> astralBodies = new ArrayList<AstralBody>();
+    private ArrayList<Body> astralBodies = new ArrayList<Body>();
 
     public BodiesAggregator() {
     }
@@ -30,16 +28,16 @@ public class BodiesAggregator implements AggregatorImpl {
 
     private int getAstralBodiesBoundedIndex(int index) {
         // validation of requested index, resulting int-value of index for inline code use
-        if (index >=0 && index < this.astralBodies.size()) return index;
-        throw new IllegalArgumentException("There is no astral body with index equals " + index);
+        if (index >= 0 && index < this.astralBodies.size()) return index;
+        throw new IllegalArgumentException("There is no astral entity with index equals " + index);
     }
 
     // all next methods commented in interface
-    public void addSubEntity(int index, AstralBody subEntity) {
+    public void addSubEntity(int index, Body subEntity) {
         if (!(subEntity instanceof Satellite)) {
-            for (AstralBody astralBody : this.astralBodies) {
-                if (astralBody.equals(subEntity))
-                    throw new IllegalArgumentException("Astral body object already exist");
+            for (Body body : this.astralBodies) {
+                if (body.equals(subEntity))
+                    throw new IllegalArgumentException("Astral entity object already exist");
             }
             if (index < 0) this.astralBodies.add(subEntity);
             else this.astralBodies.add(getAstralBodiesBoundedIndex(index), subEntity);
@@ -48,7 +46,7 @@ public class BodiesAggregator implements AggregatorImpl {
         }
     }
 
-    public void setSubEntity(int index, AstralBody subEntity) {
+    public void setSubEntity(int index, Body subEntity) {
         if (!(subEntity instanceof Satellite)) {
             this.astralBodies.set(getAstralBodiesBoundedIndex(index), subEntity);
         } else {
@@ -60,14 +58,14 @@ public class BodiesAggregator implements AggregatorImpl {
         this.astralBodies.remove(getAstralBodiesBoundedIndex(index));
     }
 
-    public AstralBody getSubEntity(int index) {
+    public Body getSubEntity(int index) {
         return this.astralBodies.get(getAstralBodiesBoundedIndex(index));
     }
 
-    public double getMass(){
+    public double getMass() {
         double mass = 0;
-        for (AstralBody astralBody : this.astralBodies)
-            mass += astralBody.getMass();
+        for (Body body : this.astralBodies)
+            mass += body.getMass();
         return mass;
     }
 
@@ -79,5 +77,3 @@ public class BodiesAggregator implements AggregatorImpl {
                 '}';
     }
 }
-
-

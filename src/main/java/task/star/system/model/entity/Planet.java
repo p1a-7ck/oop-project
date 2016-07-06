@@ -1,22 +1,18 @@
-package task.object.hierarchy.entity.body;
+package task.star.system.model.entity;
 
-import task.object.hierarchy.entity.EntityComplexImpl;
-import task.object.hierarchy.entity.EntitySimpleImpl;
+import task.star.system.model.*;
 
 import java.util.ArrayList;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Planet extends AstralBody implements EntitySimpleImpl, EntityComplexImpl {
-    // inherited from class AstralBody all it's methods implemented
-    // only Planet could have Satellites (it's same in a real) so EntityComplexImpl interface is implemented here
+public class Planet extends Body implements IEntitySimple, IEntityComplex {
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {
     }
 
-    // all next methods commented in interface
     public boolean haveSubEntities() {
         return true;
     }
@@ -30,7 +26,7 @@ public class Planet extends AstralBody implements EntitySimpleImpl, EntityComple
         throw new IllegalArgumentException("There is no satellite with index equals " + index);
     }
 
-    public void addSubEntity(int index, AstralBody subEntity) {
+    public void addSubEntity(int index, Body subEntity) {
         if (subEntity instanceof Satellite) {
             for (Satellite satellite : this.satellites) {
                 if (satellite.equals(subEntity))
@@ -43,7 +39,7 @@ public class Planet extends AstralBody implements EntitySimpleImpl, EntityComple
         }
     }
 
-    public void setSubEntity(int index, AstralBody subEntity) {
+    public void setSubEntity(int index, Body subEntity) {
         if (subEntity instanceof Satellite) {
             this.satellites.set(getSatellitesBoundedIndex(index), (Satellite) subEntity);
         } else {
@@ -55,7 +51,7 @@ public class Planet extends AstralBody implements EntitySimpleImpl, EntityComple
         this.satellites.remove(getSatellitesBoundedIndex(index));
     }
 
-    public AstralBody getSubEntity(int index) {
+    public Body getSubEntity(int index) {
         return this.satellites.get(getSatellitesBoundedIndex(index));
     }
 

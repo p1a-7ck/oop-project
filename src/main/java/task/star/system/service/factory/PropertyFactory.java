@@ -1,8 +1,6 @@
-package task.object.hierarchy.service.factory;
+package task.star.system.service.factory;
 
-//import task.object.hierarchy.entity.property.PropertyArray;
-
-import task.object.hierarchy.entity.body.AstralBody;
+import task.star.system.model.entity.Body;
 
 import java.util.Random;
 
@@ -10,7 +8,6 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class PropertyFactory {
-    // factory creates random number of properties for passed through argument AstralBody-object
     public NameFactory nameFactory = new NameFactory();
     private int minPropertiesNumber;
     private int maxPropertiesNumber;
@@ -22,26 +19,30 @@ public class PropertyFactory {
     public PropertyFactory() {
     }
 
-    public void createRandomProperty(AstralBody astralBody) {
+    public void createRandomProperty(Body body) {
         NameFactory stringFactory = new NameFactory();
         Random random = new Random();
 
         stringFactory.setNameMaxLength(this.maxStringLength);
         stringFactory.setNameMinLength(this.minStringLength);
-        for (int i = 0; i < random.nextInt(this.maxPropertiesNumber - this.minPropertiesNumber) + this.minPropertiesNumber; i++) {
+        for (int i = 0; i < random.nextInt(this.maxPropertiesNumber - this.minPropertiesNumber) +
+                this.minPropertiesNumber; i++) {
             try {
                 switch (random.nextInt(4)) {
                     case 0: //int
-                        astralBody.addProperty(nameFactory.createRandomName(),
-                                random.nextInt(this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
+                        body.addProperty(nameFactory.createRandomName(),
+                                random.nextInt(this.maxNumericValue - this.minNumericValue) +
+                                        this.minNumericValue);
                     case 1: //long
-                        astralBody.addProperty(nameFactory.createRandomName(),
-                                random.nextLong() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
+                        body.addProperty(nameFactory.createRandomName(),
+                                random.nextLong() * (this.maxNumericValue - this.minNumericValue) +
+                                        this.minNumericValue);
                     case 2: //double
-                        astralBody.addProperty(nameFactory.createRandomName(),
-                                random.nextDouble() * (this.maxNumericValue - this.minNumericValue) + this.minNumericValue);
+                        body.addProperty(nameFactory.createRandomName(),
+                                random.nextDouble() * (this.maxNumericValue - this.minNumericValue) +
+                                        this.minNumericValue);
                     case 3: //String
-                        astralBody.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
+                        body.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Not unique random property naming exception");

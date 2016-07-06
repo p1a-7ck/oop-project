@@ -1,12 +1,11 @@
-package task.object.hierarchy.entity.body;
+package task.star.system.model.entity;
 
-import task.object.hierarchy.entity.EntitySimpleImpl;
+import task.star.system.model.IEntitySimple;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Star extends AstralBody implements EntitySimpleImpl {
-    // inherited from AstralBody class, have three fields to store stars' classification data
+public class Star extends Body implements IEntitySimple {
     public enum SPECTRAL_CLASS {O, B, A, F, G, K, M, W, L, T, Y, C, S, D, Q, P}
 
     public enum SIZE_PREFIX {d, esd, c, g, sg, sd, w, wd}

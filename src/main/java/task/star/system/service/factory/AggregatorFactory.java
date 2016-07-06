@@ -1,18 +1,19 @@
-package task.object.hierarchy.service.factory;
+package task.star.system.service.factory;
 
-import task.object.hierarchy.entity.body.Planet;
-import task.object.hierarchy.entity.body.Satellite;
-import task.object.hierarchy.entity.body.Star;
-import task.object.hierarchy.entity.body.BodiesAggregator;
+import task.star.system.model.entity.BodiesAggregator;
+import task.star.system.model.entity.Planet;
+import task.star.system.model.entity.Star;
 
 import java.util.Random;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
+ * <p>
+ * This factory-class creates random number of bodies with random properties
+ * and randomly set name. Random values generated between set limits, which
+ * could be updated through certain methods.
  */
 public class AggregatorFactory {
-    // factory creates aggregator name and random number of stars and planets (satellites creates by BodyFactory)
-    // there are validation for any fields, for example, max-Value should be more than or equal to min-Value
     public NameFactory nameFactory = new NameFactory();
     private int minStarNumber;
     private int maxStarNumber;

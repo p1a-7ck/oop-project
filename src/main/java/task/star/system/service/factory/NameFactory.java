@@ -1,12 +1,15 @@
-package task.object.hierarchy.service.factory;
+package task.star.system.service.factory;
 
 import java.util.Random;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
+ * <p>
+ * Who cares about this comment? No one cares, even if read this comment,
+ * you will get more information from java-code, because ... what?
+ * correct - java is made for code-easy-reading
  */
 public class NameFactory {
-    // factory creates random names, there should alternate consonants and vowels to easy read and recognition
     static final int MIN_CHAR_UPPER = 65;
     static final int MAX_CHAR_UPPER = 90;
     static final int MIN_CHAR_LOWER = 97;

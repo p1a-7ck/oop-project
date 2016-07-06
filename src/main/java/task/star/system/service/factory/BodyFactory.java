@@ -1,15 +1,19 @@
-package task.object.hierarchy.service.factory;
+package task.star.system.service.factory;
 
-import task.object.hierarchy.entity.body.*;
+import task.star.system.model.entity.*;
 
 import java.util.Random;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
+ * <p>
+ * This factory-class creates random number of randomly generated properties
+ * for passed through the argument body-object. For star-object creates random
+ * classification values, for planet-object creates random number of satellites
+ * and random number of randomly generated properties through recursive call
+ * to factory-method
  */
 public class BodyFactory {
-    // factory creates randomly properties for AstralBody which passed through argument (Star or Planet), and if its Star
-    // creates random star-classification values; for planet-objects creates satellites running recursively this factory-method
     public NameFactory nameFactory = new NameFactory();
     private double minMass;
     private double maxMass;
@@ -25,29 +29,31 @@ public class BodyFactory {
     public BodyFactory() {
     }
 
-    public AstralBody createRandomAstralBody(AstralBody astralBody, PropertyFactory propertyFactory) {
+    public Body createRandomAstralBody(Body body, PropertyFactory propertyFactory) {
         Random random = new Random();
-        astralBody.setName(nameFactory.createRandomName());
-        astralBody.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
-        astralBody.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
-        astralBody.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
-        astralBody.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) + this.minDistanceFromCenter);
-        if (astralBody instanceof Star) {
+        body.setName(nameFactory.createRandomName());
+        body.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
+        body.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
+        body.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
+        body.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) +
+                this.minDistanceFromCenter);
+        if (body instanceof Star) {
             Star.SPECTRAL_CLASS[] spectralClass = Star.SPECTRAL_CLASS.values();
             Star.SIZE_PREFIX[] sizePrefices = Star.SIZE_PREFIX.values();
             Star.EMITION_SUFFIX[] emitionSuffices = Star.EMITION_SUFFIX.values();
-            ((Star) astralBody).setSpectralClass(spectralClass[random.nextInt(16)]);
-            ((Star) astralBody).setSizePrefix(sizePrefices[random.nextInt(8)]);
-            ((Star) astralBody).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
+            ((Star) body).setSpectralClass(spectralClass[random.nextInt(16)]);
+            ((Star) body).setSizePrefix(sizePrefices[random.nextInt(8)]);
+            ((Star) body).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
         }
-        if (astralBody instanceof Planet) {
-            for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) + this.minEachPlanetSatelliteNumber; s++) {
+        if (body instanceof Planet) {
+            for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) +
+                    this.minEachPlanetSatelliteNumber; s++) {
                 Satellite satellite = (Satellite) this.createRandomAstralBody(new Satellite(), propertyFactory);
-                ((Planet) astralBody).addSubEntity(-1, satellite);
+                ((Planet) body).addSubEntity(-1, satellite);
             }
         }
-        propertyFactory.createRandomProperty(astralBody);
-        return astralBody;
+        propertyFactory.createRandomProperty(body);
+        return body;
     }
 
     public double getMinMass() {

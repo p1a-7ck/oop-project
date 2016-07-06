@@ -1,6 +1,6 @@
-package task.object.hierarchy.entity.body;
+package task.star.system.model.entity;
 
-import task.object.hierarchy.entity.EntitySimpleImpl;
+import task.star.system.model.IEntitySimple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,16 +9,14 @@ import java.util.Map;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public abstract class AstralBody implements EntitySimpleImpl {
-    // base abstract (parent) class for other astral bodies: star, planet, satellite
+public abstract class Body implements IEntitySimple {
     private String name; // TODO need to add UUID or another identification field-holder
     private double mass;
     private double density;
     private double diameter;
     private double distanceFromCenter;
-    private Map<String, Object> properties = new HashMap<String, Object>(); // holds mapped array of named properties
+    private Map<String, Object> properties = new HashMap<String, Object>();
 
-    // all next methods commented in interface
     public String getName() {
         return name;
     }
@@ -98,7 +96,7 @@ public abstract class AstralBody implements EntitySimpleImpl {
 
     @Override
     public String toString() {
-        return "AstralBody{" +
+        return "Body{" +
                 "name='" + name + '\'' +
                 ", mass=" + mass +
                 ", density=" + density +
