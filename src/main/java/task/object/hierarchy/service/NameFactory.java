@@ -23,6 +23,8 @@ class NameFactory {
     }
 
     public void setLength(int length) {
+        if (length < 0)
+            throw new IllegalArgumentException("Name's length should be more than or equal to zero");
         this.length = length;
     }
 

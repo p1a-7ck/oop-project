@@ -11,7 +11,7 @@ public class ClassificationFactory {
     public ClassificationFactory() {
     }
 
-    public StarClassificator createClassificator() {
+    public StarClassificator createRandomClassificator() {
         StarClassificator starClassificator = new StarClassificator();
         Random random = new Random();
         StarClassificator.SPECTRAL_CLASS[] spectralClass = StarClassificator.SPECTRAL_CLASS.values();

@@ -1,6 +1,7 @@
 package task.object.hierarchy.service;
 
 import task.object.hierarchy.entity.body.*;
+import task.object.hierarchy.entity.property.PropertyArray;
 
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class BodyFactory {
     public BodyFactory() {
     }
 
-    public AstralBody createAstralBody(AstralBody astralBody) {
+    public AstralBody createRandomAstralBody(AstralBody astralBody, PropertyArrayFactory propertyArrayFactory) {
         Random random = new Random();
         NameFactory nameFactory = new NameFactory();
         nameFactory.setLength(random.nextInt(this.nameMaxLength - this.nameMinLength) + this.nameMinLength);
@@ -31,6 +32,7 @@ public class BodyFactory {
         astralBody.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
         astralBody.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
         astralBody.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) + this.minDistanceFromCenter);
+        propertyArrayFactory.createRandomPropertyArray(astralBody.getPropertyArray());
         return astralBody;
     }
 
@@ -39,6 +41,10 @@ public class BodyFactory {
     }
 
     public void setNameMinLength(int nameMinLength) {
+        if (nameMinLength < 0)
+            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
+        if (nameMinLength > this.nameMaxLength)
+            throw new IllegalArgumentException("Name's minimum length should be less than or equal to maximum");
         this.nameMinLength = nameMinLength;
     }
 
@@ -47,6 +53,10 @@ public class BodyFactory {
     }
 
     public void setNameMaxLength(int nameMaxLength) {
+        if (nameMaxLength < 0)
+            throw new IllegalArgumentException("Length of name should be more than or equal to zero");
+        if (nameMaxLength < this.nameMinLength)
+            throw new IllegalArgumentException("Name's maximum length should be more than or equal to minimum");
         this.nameMaxLength = nameMaxLength;
     }
 
@@ -55,6 +65,10 @@ public class BodyFactory {
     }
 
     public void setMinMass(double minMass) {
+        if (minMass < 0)
+            throw new IllegalArgumentException("Minimum mass should be more than or equal to zero");
+        if (minMass > this.maxMass)
+            throw new IllegalArgumentException("Minimum mass should be less than or equal to maximum");
         this.minMass = minMass;
     }
 
@@ -63,6 +77,10 @@ public class BodyFactory {
     }
 
     public void setMaxMass(double maxMass) {
+        if (maxMass < 0)
+            throw new IllegalArgumentException("Maximum mass should be more than or equal to zero");
+        if (maxMass < this.minMass)
+            throw new IllegalArgumentException("Maximum mass should be more than or equal to minimum");
         this.maxMass = maxMass;
     }
 
@@ -71,6 +89,10 @@ public class BodyFactory {
     }
 
     public void setMinDensity(double minDensity) {
+        if (minDensity < 0)
+            throw new IllegalArgumentException("Minimum density should be more than or equal to zero");
+        if (minDensity > this.maxDensity)
+            throw new IllegalArgumentException("Minimum density should be less than or equal to maximum");
         this.minDensity = minDensity;
     }
 
@@ -79,6 +101,10 @@ public class BodyFactory {
     }
 
     public void setMaxDensity(double maxDensity) {
+        if (maxDensity < 0)
+            throw new IllegalArgumentException("Maximum density should be more than or equal to zero");
+        if (maxDensity < this.minDensity)
+            throw new IllegalArgumentException("Maximum density should be more than or equal to minimum");
         this.maxDensity = maxDensity;
     }
 
@@ -87,6 +113,10 @@ public class BodyFactory {
     }
 
     public void setMinDiameter(double minDiameter) {
+        if (minDiameter < 0)
+            throw new IllegalArgumentException("Minimum diameter should be more than or equal to zero");
+        if (minDiameter > this.maxDiameter)
+            throw new IllegalArgumentException("Minimum diameter should be less than or equal to maximum");
         this.minDiameter = minDiameter;
     }
 
@@ -95,6 +125,10 @@ public class BodyFactory {
     }
 
     public void setMaxDiameter(double maxDiameter) {
+        if (maxDiameter < 0)
+            throw new IllegalArgumentException("Maximum diameter should be more than or equal to zero");
+        if (maxDiameter < this.minDiameter)
+            throw new IllegalArgumentException("Maximum diameter should be more than or equal to minimum");
         this.maxDiameter = maxDiameter;
     }
 
@@ -103,6 +137,10 @@ public class BodyFactory {
     }
 
     public void setMinDistanceFromCenter(double minDistanceFromCenter) {
+        if (minDistanceFromCenter < 0)
+            throw new IllegalArgumentException("Minimum distance from center should be more than or equal to zero");
+        if (minDistanceFromCenter > this.maxDistanceFromCenter)
+            throw new IllegalArgumentException("Minimum distance from center should be less than or equal to maximum");
         this.minDistanceFromCenter = minDistanceFromCenter;
     }
 
@@ -111,6 +149,10 @@ public class BodyFactory {
     }
 
     public void setMaxDistanceFromCenter(double maxDistanceFromCenter) {
+        if (maxDistanceFromCenter < 0)
+            throw new IllegalArgumentException("Maximum distance from center should be more than or equal to zero");
+        if (maxDistanceFromCenter < this.minDistanceFromCenter)
+            throw new IllegalArgumentException("Maximum distance from center should be more than or equal to minimum");
         this.maxDistanceFromCenter = maxDistanceFromCenter;
     }
 }

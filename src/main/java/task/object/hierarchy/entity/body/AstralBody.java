@@ -1,5 +1,7 @@
 package task.object.hierarchy.entity.body;
 
+import task.object.hierarchy.entity.property.PropertyArray;
+
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
@@ -9,6 +11,7 @@ public abstract class AstralBody {
     private double density;
     private double diameter;
     private double distanceFromCenter;
+    private PropertyArray propertyArray = new PropertyArray();
 
     public String getName() {
         return name;
@@ -48,6 +51,10 @@ public abstract class AstralBody {
 
     public void setDistanceFromCenter(double distanceFromCenter) {
         this.distanceFromCenter = distanceFromCenter;
+    }
+
+    public PropertyArray getPropertyArray() {
+        return propertyArray;
     }
 
     public boolean isNoSatellitePossibility() {

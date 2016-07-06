@@ -1,6 +1,7 @@
 package task.object.hierarchy.entity.complex;
 
 import java.util.ArrayList;
+
 import task.object.hierarchy.entity.body.*;
 import task.object.hierarchy.entity.body.Star.Star;
 
@@ -25,12 +26,12 @@ public class Complex {
     }
 
     private int getCheckedStarArrayIndex(int index) {
-        if (index >=0 && index < this.stars.size()) return index;
+        if (index >= 0 && index < this.stars.size()) return index;
         throw new IllegalArgumentException("There is no star with index equals " + index);
     }
 
     private int getCheckedPlanetArrayIndex(int index) {
-        if (index >=0 && index < this.planets.size()) return index;
+        if (index >= 0 && index < this.planets.size()) return index;
         throw new IllegalArgumentException("There is no planet with index equals " + index);
     }
 
@@ -77,9 +78,9 @@ public class Complex {
         String o = "";
 
         o += "Stars / " + this.stars.size() + ":\n";
-        for (Star star: this.stars) o += "\t" + star + "\n";
+        for (Star star : this.stars) o += "\t" + star + "\n";
         o += "Planets / " + this.planets.size() + ":\n";
-        for (Planet planet: this.planets) o += "\t\t" + planet + "\n";
+        for (Planet planet : this.planets) o += "\t\t" + planet + "\n";
         return this.name + "\n" + o;
     }
 
