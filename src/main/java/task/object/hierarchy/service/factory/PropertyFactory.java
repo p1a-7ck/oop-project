@@ -10,6 +10,7 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class PropertyFactory {
+    // factory creates random number of properties for passed through argument AstralBody-object
     public NameFactory nameFactory = new NameFactory();
     private int minPropertiesNumber;
     private int maxPropertiesNumber;

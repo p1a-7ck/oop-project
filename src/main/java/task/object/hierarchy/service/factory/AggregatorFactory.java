@@ -11,6 +11,8 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class AggregatorFactory {
+    // factory creates aggregator name and random number of stars and planets (satellites creates by BodyFactory)
+    // there are validation for any fields, for example, max-Value should be more than or equal to min-Value
     public NameFactory nameFactory = new NameFactory();
     private int minStarNumber;
     private int maxStarNumber;

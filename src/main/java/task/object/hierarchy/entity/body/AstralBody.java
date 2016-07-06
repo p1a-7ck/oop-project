@@ -10,13 +10,15 @@ import java.util.Map;
  * Created by P1A-7CK on 06.07.2016.
  */
 public abstract class AstralBody implements EntitySimpleImpl {
-    private String name;
+    // base abstract (parent) class for other astral bodies: star, planet, satellite
+    private String name; // TODO need to add UUID or another identification field-holder
     private double mass;
     private double density;
     private double diameter;
     private double distanceFromCenter;
-    private Map<String, Object> properties = new HashMap<String, Object>();
+    private Map<String, Object> properties = new HashMap<String, Object>(); // holds mapped array of named properties
 
+    // all next methods commented in interface
     public String getName() {
         return name;
     }

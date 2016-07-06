@@ -9,11 +9,14 @@ import java.util.ArrayList;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class Planet extends AstralBody implements EntitySimpleImpl, EntityComplexImpl {
+    // inherited from class AstralBody all it's methods implemented
+    // only Planet could have Satellites (it's same in a real) so EntityComplexImpl interface is implemented here
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {
     }
 
+    // all next methods commented in interface
     public boolean haveSubEntities() {
         return true;
     }

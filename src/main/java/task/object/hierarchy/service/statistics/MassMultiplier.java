@@ -9,6 +9,7 @@ import task.object.hierarchy.entity.body.Planet;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class MassMultiplier {
+    //there are two overloaded methods which allow to check code-use through interfaces
     public MassMultiplier() {
     }
 

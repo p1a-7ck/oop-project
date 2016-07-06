@@ -8,6 +8,8 @@ import java.util.Random;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class BodyFactory {
+    // factory creates randomly properties for AstralBody which passed through argument (Star or Planet), and if its Star
+    // creates random star-classification values; for planet-objects creates satellites running recursively this factory-method
     public NameFactory nameFactory = new NameFactory();
     private double minMass;
     private double maxMass;

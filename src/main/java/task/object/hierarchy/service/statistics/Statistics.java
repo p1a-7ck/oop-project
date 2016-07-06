@@ -14,6 +14,7 @@ import java.util.Comparator;
  * Created by P1A-7CK on 06.07.2016.
  */
 public class Statistics implements StatisticsImpl {
+    // this is a base class for statistics which accessible to use through interface
     public Statistics() {
     }
 

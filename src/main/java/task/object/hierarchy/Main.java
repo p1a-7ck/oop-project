@@ -14,11 +14,12 @@ import task.object.hierarchy.service.statistics.StatisticsImpl;
  */
 public class Main {
     public static void main(String[] args) {
-
+        // nameFactory passes to another factories as an argument to create random names
         NameFactory nameFactory = new NameFactory();
         nameFactory.setNameMaxLength(15);
         nameFactory.setNameMinLength(5);
 
+        // propertyFactory passes to aggregator/body factories as an argument to create random properties
         PropertyFactory propertyFactory = new PropertyFactory();
         propertyFactory.nameFactory = nameFactory;
         propertyFactory.setMaxPropertiesNumber(25);
@@ -28,6 +29,7 @@ public class Main {
         propertyFactory.setMaxStringLength(50);
         propertyFactory.setMinStringLength(10);
 
+        // bodyFactory passes to aggregator factory as an argument to create random astral bodies
         BodyFactory bodyFactory = new BodyFactory();
         bodyFactory.nameFactory = nameFactory;
         bodyFactory.setMaxMass(100000);
@@ -41,6 +43,7 @@ public class Main {
         bodyFactory.setMaxEachPlanetSatelliteNumber(10);
         bodyFactory.setMinEachPlanetSatelliteNumber(0);
 
+        // aggregatorFactory create a random system which consist of random bodies
         AggregatorFactory aggregatorFactory = new AggregatorFactory();
         aggregatorFactory.nameFactory = nameFactory;
         aggregatorFactory.setMaxStarNumber(5);
@@ -53,6 +56,7 @@ public class Main {
         System.out.println("\nCREATED ENTITIES");
         System.out.println(bodiesAggregator);
 
+        // statistics process aggregator's bodies to calculate statistics data
         StatisticsImpl statistics = new Statistics();
         System.out.println("\nTOTAL MASS OF '" + bodiesAggregator.getName() + "' EQUALS TO " + statistics.multiplyMass(bodiesAggregator));
 
