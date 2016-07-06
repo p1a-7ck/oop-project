@@ -16,31 +16,19 @@ public class SystemFactory {
     private int maxStarNumber;
     private int minPlanetNumber;
     private int maxPlanetNumber;
-    private int minEachPlanetSatelliteNumber;
-    private int maxEachPlanetSatelliteNumber;
 
     public SystemFactory() {
     }
 
     public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyFactory propertyFactory) {
-        ClassificationFactory classificationFactory = new ClassificationFactory();
         Random random = new Random();
 
         BodiesAggregator bodiesAggregator = new BodiesAggregator();
         bodiesAggregator.setName(nameFactory.createRandomName());
-        for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++) {
-            Star star = (Star) bodyFactory.createRandomAstralBody(new Star(), propertyFactory);
-            //star.setStarClassificator(classificationFactory.createRandomClassificator());
-            bodiesAggregator.addStar(star);
-        }
-        for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++) {
-            Planet planet = (Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyFactory);
-            for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) + this.minEachPlanetSatelliteNumber; s++) {
-                Satellite satellite = (Satellite) bodyFactory.createRandomAstralBody(new Satellite(), propertyFactory);
-                planet.setSatelliteClone(planet.addSatellite() - 1, satellite);
-            }
-            bodiesAggregator.addPlanet(planet);
-        }
+        for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++)
+            bodiesAggregator.addStar((Star) bodyFactory.createRandomAstralBody(new Star(), propertyFactory));
+        for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++)
+            bodiesAggregator.addPlanet((Planet) bodyFactory.createRandomAstralBody(new Planet(), propertyFactory));
         return bodiesAggregator;
     }
 
@@ -90,29 +78,5 @@ public class SystemFactory {
         if (maxPlanetNumber < this.minPlanetNumber)
             throw new IllegalArgumentException("Maximum planets number should be more than or equal to minimum");
         this.maxPlanetNumber = maxPlanetNumber;
-    }
-
-    public int getMinEachPlanetSatelliteNumber() {
-        return minEachPlanetSatelliteNumber;
-    }
-
-    public void setMinEachPlanetSatelliteNumber(int minEachPlanetSatelliteNumber) {
-        if (minEachPlanetSatelliteNumber < 0)
-            throw new IllegalArgumentException("Minimum satellites number should be more than or equal to zero");
-        if (minEachPlanetSatelliteNumber > this.maxEachPlanetSatelliteNumber)
-            throw new IllegalArgumentException("Minimum satellites number should be less than or equal to maximum");
-        this.minEachPlanetSatelliteNumber = minEachPlanetSatelliteNumber;
-    }
-
-    public int getMaxEachPlanetSatelliteNumber() {
-        return maxEachPlanetSatelliteNumber;
-    }
-
-    public void setMaxEachPlanetSatelliteNumber(int maxEachPlanetSatelliteNumber) {
-        if (maxEachPlanetSatelliteNumber < 0)
-            throw new IllegalArgumentException("Maximum satellites number should be more than or equal to zero");
-        if (maxEachPlanetSatelliteNumber < this.minEachPlanetSatelliteNumber)
-            throw new IllegalArgumentException("Maximum satellites number should be more than or equal to minimum");
-        this.maxEachPlanetSatelliteNumber = maxEachPlanetSatelliteNumber;
     }
 }

@@ -17,6 +17,8 @@ public class BodyFactory {
     private double maxDiameter;
     private double minDistanceFromCenter;
     private double maxDistanceFromCenter;
+    private int minEachPlanetSatelliteNumber;
+    private int maxEachPlanetSatelliteNumber;
 
     public BodyFactory() {
     }
@@ -35,6 +37,12 @@ public class BodyFactory {
             ((Star) astralBody).setSpectralClass(spectralClass[random.nextInt(16)]);
             ((Star) astralBody).setSizePrefix(sizePrefices[random.nextInt(8)]);
             ((Star) astralBody).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
+        }
+        if (astralBody instanceof Planet) {
+            for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) + this.minEachPlanetSatelliteNumber; s++) {
+                Satellite satellite = (Satellite) this.createRandomAstralBody(new Satellite(), propertyFactory);
+                ((Planet) astralBody).addSubEntity(-1, satellite);
+            }
         }
         propertyFactory.createRandomProperty(astralBody);
         return astralBody;
@@ -134,5 +142,29 @@ public class BodyFactory {
         if (maxDistanceFromCenter < this.minDistanceFromCenter)
             throw new IllegalArgumentException("Maximum distance from center should be more than or equal to minimum");
         this.maxDistanceFromCenter = maxDistanceFromCenter;
+    }
+
+    public int getMinEachPlanetSatelliteNumber() {
+        return minEachPlanetSatelliteNumber;
+    }
+
+    public void setMinEachPlanetSatelliteNumber(int minEachPlanetSatelliteNumber) {
+        if (minEachPlanetSatelliteNumber < 0)
+            throw new IllegalArgumentException("Minimum satellites number should be more than or equal to zero");
+        if (minEachPlanetSatelliteNumber > this.maxEachPlanetSatelliteNumber)
+            throw new IllegalArgumentException("Minimum satellites number should be less than or equal to maximum");
+        this.minEachPlanetSatelliteNumber = minEachPlanetSatelliteNumber;
+    }
+
+    public int getMaxEachPlanetSatelliteNumber() {
+        return maxEachPlanetSatelliteNumber;
+    }
+
+    public void setMaxEachPlanetSatelliteNumber(int maxEachPlanetSatelliteNumber) {
+        if (maxEachPlanetSatelliteNumber < 0)
+            throw new IllegalArgumentException("Maximum satellites number should be more than or equal to zero");
+        if (maxEachPlanetSatelliteNumber < this.minEachPlanetSatelliteNumber)
+            throw new IllegalArgumentException("Maximum satellites number should be more than or equal to minimum");
+        this.maxEachPlanetSatelliteNumber = maxEachPlanetSatelliteNumber;
     }
 }

@@ -1,90 +1,59 @@
 package task.object.hierarchy.entity.body;
 
+import task.object.hierarchy.entity.EntityComplexImpl;
+import task.object.hierarchy.entity.EntitySimpleImpl;
+
 import java.util.ArrayList;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Planet extends AstralBody {
+public class Planet extends AstralBody implements EntitySimpleImpl, EntityComplexImpl {
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {
-
     }
 
-    private int getCheckedSatellitesArrayIndex(int index) {
+    public boolean haveSubEntities() {
+        return true;
+    }
+
+    public int countSubEntities() {
+        return satellites.size();
+    }
+
+    private int getSatellitesBoundedIndex(int index) {
         if (index >=0 && index < this.satellites.size()) return index;
         throw new IllegalArgumentException("There is no satellite with index equals " + index);
     }
 
-    public int addSatellite() {
-        this.satellites.add(new Satellite());
-        return this.satellites.size();
+    public void addSubEntity(int index, AstralBody subEntity) {
+        if (subEntity instanceof Satellite) {
+            for (Satellite satellite : this.satellites) {
+                if (satellite.equals(subEntity))
+                    throw new IllegalArgumentException("Satellite object already exist");
+            }
+            if (index < 0) this.satellites.add((Satellite) subEntity);
+            else this.satellites.add(getSatellitesBoundedIndex(index), (Satellite) subEntity);
+        } else {
+            throw new IllegalArgumentException("Argument should be Satellite object");
+        }
     }
 
-    public void removeSatellite(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.remove(index);
+    public void setSubEntity(int index, AstralBody subEntity) {
+        if (subEntity instanceof Satellite) {
+            this.satellites.set(getSatellitesBoundedIndex(index), (Satellite) subEntity);
+        } else {
+            throw new IllegalArgumentException("Argument should be Satellite object");
+        }
     }
 
-    public Satellite getSatelliteClone(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getClone();
+    public void removeSubEntity(int index) {
+        this.satellites.remove(getSatellitesBoundedIndex(index));
     }
 
-    public void setSatelliteClone(int index, Satellite satellite) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setClone(satellite);
-    }
-
-    public String getSatelliteName(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getName();
-    }
-
-    public void setSatelliteName(int index, String name) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setName(name);
-    }
-
-    public double getSatelliteMass(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getMass();
-    }
-
-    public void setSatelliteMass(int index, double mass) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setMass(mass);
-    }
-
-    public double getSatelliteDensity(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getDensity();
-    }
-
-    public void setSatelliteDensity(int index, double density) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setDensity(density);
-    }
-
-    public double getSatelliteDiameter(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getDiameter();
-    }
-
-    public void setSatelliteDiameter(int index, double diameter) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setDiameter(diameter);
-    }
-
-    public double getSatelliteDistanceFromCenter(int index) {
-        index = getCheckedSatellitesArrayIndex(index);
-        return this.satellites.get(index).getDistanceFromCenter();
-    }
-
-    public void setSatelliteDistanceFromCenter(int index, double distance) {
-        index = getCheckedSatellitesArrayIndex(index);
-        this.satellites.get(index).setDistanceFromCenter(distance);
+    public AstralBody getSubEntity(int index) {
+        return this.satellites.get(getSatellitesBoundedIndex(index));
     }
 
     @Override
