@@ -1,4 +1,4 @@
-package task.star.system.service;
+package task.star.system.service.factory;
 
 import task.star.system.service.factory.AggregatorFactory;
 import task.star.system.service.factory.BodyFactory;

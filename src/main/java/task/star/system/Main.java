@@ -1,7 +1,7 @@
 package task.star.system;
 
 import task.star.system.model.entity.BodiesAggregator;
-import task.star.system.service.FactoriesInitial;
+import task.star.system.service.factory.FactoriesInitial;
 import task.star.system.service.factory.AggregatorFactory;
 import task.star.system.service.factory.BodyFactory;
 import task.star.system.service.factory.NameFactory;
