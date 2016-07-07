@@ -1,6 +1,6 @@
 package task.star.system.model.entity;
 
-import task.star.system.model.IEntitySimple;
+import task.star.system.model.IChangeableProperty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public abstract class Body implements IEntitySimple {
+public abstract class Body implements IChangeableProperty {
     private String name; // TODO need to add UUID or another identification field-holder
     private double mass;
     private double density;

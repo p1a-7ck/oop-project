@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Planet extends Body implements IEntitySimple, IEntityComplex {
+public class Planet extends Body implements IChangeableProperty, ICompoundableEntity {
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {

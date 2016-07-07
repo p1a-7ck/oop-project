@@ -5,7 +5,10 @@ package task.star.system.model;
  */
 public interface IChangeableGeometry {
     double getDiameter();
+
     void setDiameter(double diameter);
+
     double getDistanceFromCenter();
+
     void setDistanceFromCenter(double distanceFromCenter);
 }

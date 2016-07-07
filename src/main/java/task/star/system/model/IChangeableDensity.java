@@ -5,5 +5,6 @@ package task.star.system.model;
  */
 public interface IChangeableDensity {
     double getDensity();
+
     void setDensity(double density);
 }

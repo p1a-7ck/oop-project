@@ -1,5 +1,6 @@
 package task.star.system.service.factory;
 
+import task.star.system.model.IChangeableStarClass;
 import task.star.system.model.entity.*;
 
 import java.util.Random;
@@ -29,7 +30,7 @@ public class BodyFactory {
     public BodyFactory() {
     }
 
-    public Body createRandomAstralBody(Body body, PropertyFactory propertyFactory) {
+    public Body createRandomBody(Body body, PropertyFactory propertyFactory) {
         Random random = new Random();
         body.setName(nameFactory.createRandomName());
         body.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
@@ -41,14 +42,14 @@ public class BodyFactory {
             Star.SPECTRAL_CLASS[] spectralClass = Star.SPECTRAL_CLASS.values();
             Star.SIZE_PREFIX[] sizePrefices = Star.SIZE_PREFIX.values();
             Star.EMITION_SUFFIX[] emitionSuffices = Star.EMITION_SUFFIX.values();
-            ((Star) body).setSpectralClass(spectralClass[random.nextInt(16)]);
-            ((Star) body).setSizePrefix(sizePrefices[random.nextInt(8)]);
-            ((Star) body).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
+            ((IChangeableStarClass) body).setSpectralClass(spectralClass[random.nextInt(16)]);
+            ((IChangeableStarClass) body).setSizePrefix(sizePrefices[random.nextInt(8)]);
+            ((IChangeableStarClass) body).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
         }
         if (body instanceof Planet) {
             for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) +
                     this.minEachPlanetSatelliteNumber; s++) {
-                Satellite satellite = (Satellite) this.createRandomAstralBody(new Satellite(), propertyFactory);
+                Satellite satellite = (Satellite) this.createRandomBody(new Satellite(), propertyFactory);
                 ((Planet) body).addSubEntity(-1, satellite);
             }
         }

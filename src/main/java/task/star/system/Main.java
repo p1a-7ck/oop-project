@@ -1,9 +1,13 @@
 package task.star.system;
 
-import task.star.system.model.entity.*;
+import task.star.system.model.entity.BodiesAggregator;
 import task.star.system.service.FactoriesInitial;
-import task.star.system.service.factory.*;
-import task.star.system.service.statistics.*;
+import task.star.system.service.factory.AggregatorFactory;
+import task.star.system.service.factory.BodyFactory;
+import task.star.system.service.factory.NameFactory;
+import task.star.system.service.factory.PropertyFactory;
+import task.star.system.service.statistics.IStatistics;
+import task.star.system.service.statistics.Statistics;
 
 /**
  * Created by P1A-7CK on 30.06.2016.

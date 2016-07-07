@@ -1,11 +1,12 @@
 package task.star.system.model.entity;
 
-import task.star.system.model.IEntitySimple;
+import task.star.system.model.IChangeableProperty;
+import task.star.system.model.IChangeableStarClass;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Star extends Body implements IEntitySimple {
+public class Star extends Body implements IChangeableProperty, IChangeableStarClass {
     public enum SPECTRAL_CLASS {O, B, A, F, G, K, M, W, L, T, Y, C, S, D, Q, P}
 
     public enum SIZE_PREFIX {d, esd, c, g, sg, sd, w, wd}
@@ -47,7 +48,6 @@ public class Star extends Body implements IEntitySimple {
         return this.sizePrefix.toString() + this.spectralClass.toString() + this.emitionSuffix.toString();
     }
 
-    @Override
     public String toString() {
         return "Star{" +
                 "name='" + super.getName() + '\'' +

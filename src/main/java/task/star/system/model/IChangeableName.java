@@ -5,5 +5,6 @@ package task.star.system.model;
  */
 public interface IChangeableName {
     String getName();
+
     void setName(String name);
 }

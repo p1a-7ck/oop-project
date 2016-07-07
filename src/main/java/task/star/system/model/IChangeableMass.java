@@ -5,5 +5,6 @@ package task.star.system.model;
  */
 public interface IChangeableMass {
     double getMass();
+
     void setMass(double mass);
 }

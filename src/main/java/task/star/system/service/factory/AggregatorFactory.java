@@ -29,9 +29,9 @@ public class AggregatorFactory {
         BodiesAggregator bodiesAggregator = new BodiesAggregator();
         bodiesAggregator.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++)
-            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomAstralBody(new Star(), propertyFactory));
+            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomBody(new Star(), propertyFactory));
         for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++)
-            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomAstralBody(new Planet(), propertyFactory));
+            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomBody(new Planet(), propertyFactory));
         return bodiesAggregator;
     }
 
