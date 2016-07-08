@@ -44,7 +44,7 @@ public class Analyzer implements Analyzable {
             if (body instanceof Planet) {
                 body = (Body) this.findSubEntityByName(name, (CompoundableEntity) body);
                 if (body != null) return body;
-            }            
+            }
         }
         return null;
     }

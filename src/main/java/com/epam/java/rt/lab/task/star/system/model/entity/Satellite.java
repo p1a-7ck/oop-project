@@ -7,5 +7,6 @@ import com.epam.java.rt.lab.task.star.system.model.ChangeableProperty;
  */
 public class Satellite extends Body {
     public Satellite() {
+        super.createId();
     }
 }

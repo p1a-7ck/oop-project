@@ -13,6 +13,7 @@ public class Planet extends Body implements CompoundableEntity {
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {
+        super.createId();
     }
 
     public boolean haveSubEntities() {

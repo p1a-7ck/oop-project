@@ -5,22 +5,21 @@ import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableProperty;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
 public abstract class Body implements ChangeableName, ChangeableMass, ChangeableGeometry, ChangeableProperty {
-    private Long id;
+    private UUID id = UUID.randomUUID();
     private String name;
     private double mass;
     private double density;
     private double diameter;
     private double distanceFromCenter;
     private Map<String, Object> properties = new HashMap<String, Object>();
+
+    public UUID getId() { return id; }
 
     public String getName() {
         return name;
@@ -86,8 +85,8 @@ public abstract class Body implements ChangeableName, ChangeableMass, Changeable
         return properties.size();
     }
 
-    public ArrayList<String> getPropertiesNames() {
-        ArrayList<String> propertiesNames = new ArrayList<String>();
+    public List<String> getPropertiesNames() {
+        List<String> propertiesNames = new ArrayList<String>();
         for (Map.Entry<String, Object> entry : properties.entrySet())
             propertiesNames.add(entry.getKey());
         return propertiesNames;
