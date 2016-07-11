@@ -1,16 +1,14 @@
 package com.epam.java.rt.lab.task.star.system.model.entity;
 
-import com.epam.java.rt.lab.task.star.system.model.ChangeableGeometry;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
-import com.epam.java.rt.lab.task.star.system.model.ChangeableProperty;
 
 import java.util.*;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public abstract class BodyBase implements ChangeableName, ChangeableMass, ChangeableGeometry, ChangeableProperty {
+public abstract class BodyBase implements ChangeableName, ChangeableMass { //, ChangeableGeometry, ChangeableProperty
     private UUID id = UUID.randomUUID();
     private String name;
     private double mass;

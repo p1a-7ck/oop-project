@@ -6,6 +6,7 @@ import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
 import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -49,5 +50,14 @@ public class Analyzer implements Analyzable {
         return null;
     }
 
+    public List<ChangeableMass> findSubEntitiesWithLessMass(double mass, CompoundableEntity compoundableEntity) {
+        List<ChangeableMass> resultEntities = new ArrayList<ChangeableMass>();
+        ChangeableMass subEntity;
+        for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
+            subEntity = compoundableEntity.getSubEntity(i);
+            if (subEntity.getMass() < mass) resultEntities.add(subEntity);
+        }
+        return resultEntities;
+    }
 
 }

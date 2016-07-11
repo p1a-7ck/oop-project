@@ -1,14 +1,9 @@
 package com.epam.java.rt.lab.task.star.system;
 
+import com.epam.java.rt.lab.task.star.system.factory.*;
 import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
-import com.epam.java.rt.lab.task.star.system.model.entity.Star;
 import com.epam.java.rt.lab.task.star.system.model.entity.StarSystem;
-import com.epam.java.rt.lab.task.star.system.factory.FactoriesInitial;
-import com.epam.java.rt.lab.task.star.system.factory.StarSystemFactory;
-import com.epam.java.rt.lab.task.star.system.factory.BodyFactory;
-import com.epam.java.rt.lab.task.star.system.factory.NameFactory;
-import com.epam.java.rt.lab.task.star.system.factory.PropertyFactory;
 import com.epam.java.rt.lab.task.star.system.service.Analyzable;
 import com.epam.java.rt.lab.task.star.system.service.Analyzer;
 
@@ -57,5 +52,8 @@ public class Main {
         System.out.println(starSystem.getSubEntity(2));
         System.out.println("\nEQUAL RESULT:");
         System.out.println(planetClone.equals(starSystem.getSubEntity(2)));
+
+        System.out.println("\nRETRIEVING SUB-ENTITIES BY MASS (" + starSystem.getSubEntity(6).getMass() + "):");
+        System.out.println(analyzer.findSubEntitiesWithLessMass(starSystem.getSubEntity(6).getMass(), starSystem));
     }
 }
