@@ -5,6 +5,8 @@ import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
 import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +17,8 @@ import java.util.List;
  * Rollan Taigulov (P1A-7CK)
  */
 public class Analyzer implements Analyzable {
+    private static final Logger logger = LoggerFactory.getLogger(Analyzer.class);
+
     public Analyzer() {
     }
 
@@ -55,7 +59,10 @@ public class Analyzer implements Analyzable {
         ChangeableMass subEntity;
         for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
             subEntity = compoundableEntity.getSubEntity(i);
+            logger.info(subEntity.toString());
             if (subEntity.getMass() < mass) resultEntities.add(subEntity);
+            if (subEntity instanceof Planet)
+                resultEntities.addAll(this.findSubEntitiesWithLessMass(mass, (CompoundableEntity) subEntity));
         }
         return resultEntities;
     }
