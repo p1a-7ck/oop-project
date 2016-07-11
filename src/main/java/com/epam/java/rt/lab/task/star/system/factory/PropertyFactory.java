@@ -1,6 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.Body;
+import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 
 import java.util.Random;
 
@@ -19,7 +19,7 @@ public class PropertyFactory {
     public PropertyFactory() {
     }
 
-    public void createRandomProperty(Body body) {
+    public void createRandomProperty(BodyBase bodyBase) {
         NameFactory stringFactory = new NameFactory();
         Random random = new Random();
 
@@ -30,19 +30,19 @@ public class PropertyFactory {
             try {
                 switch (random.nextInt(4)) {
                     case 0: //int
-                        body.addProperty(nameFactory.createRandomName(),
+                        bodyBase.addProperty(nameFactory.createRandomName(),
                                 random.nextInt(this.maxNumericValue - this.minNumericValue) +
                                         this.minNumericValue);
                     case 1: //long
-                        body.addProperty(nameFactory.createRandomName(),
+                        bodyBase.addProperty(nameFactory.createRandomName(),
                                 random.nextLong() * (this.maxNumericValue - this.minNumericValue) +
                                         this.minNumericValue);
                     case 2: //double
-                        body.addProperty(nameFactory.createRandomName(),
+                        bodyBase.addProperty(nameFactory.createRandomName(),
                                 random.nextDouble() * (this.maxNumericValue - this.minNumericValue) +
                                         this.minNumericValue);
                     case 3: //String
-                        body.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
+                        bodyBase.addProperty(nameFactory.createRandomName(), stringFactory.createRandomName());
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Not unique random property naming exception");

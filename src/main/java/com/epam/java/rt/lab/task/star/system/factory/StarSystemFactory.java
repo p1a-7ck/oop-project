@@ -1,6 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.BodiesAggregator;
+import com.epam.java.rt.lab.task.star.system.model.entity.StarSystem;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
 import com.epam.java.rt.lab.task.star.system.model.entity.Star;
 
@@ -13,26 +13,26 @@ import java.util.Random;
  * and randomly set name. Random values generated between set limits, which
  * could be updated through certain methods.
  */
-public class AggregatorFactory {
+public class StarSystemFactory {
     public NameFactory nameFactory = new NameFactory();
     private int minStarNumber;
     private int maxStarNumber;
     private int minPlanetNumber;
     private int maxPlanetNumber;
 
-    public AggregatorFactory() {
+    public StarSystemFactory() {
     }
 
-    public BodiesAggregator createRandomSystem(BodyFactory bodyFactory, PropertyFactory propertyFactory) {
+    public StarSystem createRandomSystem(BodyFactory bodyFactory, PropertyFactory propertyFactory) {
         Random random = new Random();
 
-        BodiesAggregator bodiesAggregator = new BodiesAggregator();
-        bodiesAggregator.setName(nameFactory.createRandomName());
+        StarSystem starSystem = new StarSystem();
+        starSystem.setName(nameFactory.createRandomName());
         for (int s = 0; s < random.nextInt(this.maxStarNumber - this.minStarNumber) + this.minStarNumber; s++)
-            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomBody(new Star(), propertyFactory));
+            starSystem.addSubEntity(-1, bodyFactory.createRandomBody(new Star(), propertyFactory));
         for (int p = 0; p < random.nextInt(this.maxPlanetNumber - this.minPlanetNumber) + this.minPlanetNumber; p++)
-            bodiesAggregator.addSubEntity(-1, bodyFactory.createRandomBody(new Planet(), propertyFactory));
-        return bodiesAggregator;
+            starSystem.addSubEntity(-1, bodyFactory.createRandomBody(new Planet(), propertyFactory));
+        return starSystem;
     }
 
     public int getMinStarNumber() {

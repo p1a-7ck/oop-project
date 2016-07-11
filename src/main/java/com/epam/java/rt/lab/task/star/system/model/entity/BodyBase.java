@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public abstract class Body implements ChangeableName, ChangeableMass, ChangeableGeometry, ChangeableProperty {
+public abstract class BodyBase implements ChangeableName, ChangeableMass, ChangeableGeometry, ChangeableProperty {
     private UUID id = UUID.randomUUID();
     private String name;
     private double mass;
@@ -104,22 +104,33 @@ public abstract class Body implements ChangeableName, ChangeableMass, Changeable
         properties.remove(name);
     }
 
+    public void copyOf(BodyBase bodyBase) {
+        this.id = bodyBase.getId();
+        this.name = bodyBase.getName();
+        this.mass = bodyBase.getMass();
+        this.density = bodyBase.getDensity();
+        this.diameter = bodyBase.getDiameter();
+        this.distanceFromCenter = bodyBase.getDistanceFromCenter();
+    }
+
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return (id == null || name == null) ? 0 :
+                id.hashCode() + name.hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
         if (this == obj) return true;
+        if (this.getClass() != obj.getClass()) return false;
         try {
-            Body objBody = (Body) obj;
-            if (!this.name.equals(objBody.getName())) return false;
-            if (this.mass != objBody.getMass()) return false;
-            if (this.density != objBody.getDensity()) return false;
-            if (this.diameter != objBody.getDiameter()) return false;
-            if (this.distanceFromCenter != objBody.getDistanceFromCenter()) return false;
+            BodyBase objBodyBase = (BodyBase) obj;
+            if (!this.name.equals(objBodyBase.getName())) return false;
+            if (this.mass != objBodyBase.getMass()) return false;
+            if (this.density != objBodyBase.getDensity()) return false;
+            if (this.diameter != objBodyBase.getDiameter()) return false;
+            if (this.distanceFromCenter != objBodyBase.getDistanceFromCenter()) return false;
             return true;
         } catch (Exception exc) {
             return false;
@@ -128,7 +139,7 @@ public abstract class Body implements ChangeableName, ChangeableMass, Changeable
 
     @Override
     public String toString() {
-        return "Body{" +
+        return "BodyBase{" +
                 "name='" + name + '\'' +
                 ", mass=" + mass +
                 ", density=" + density +

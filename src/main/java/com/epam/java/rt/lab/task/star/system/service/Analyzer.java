@@ -3,7 +3,7 @@ package com.epam.java.rt.lab.task.star.system.service;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
-import com.epam.java.rt.lab.task.star.system.model.entity.Body;
+import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
 
 import java.util.Collections;
@@ -37,15 +37,17 @@ public class Analyzer implements Analyzable {
     }
 
     public ChangeableName findSubEntityByName(String name, CompoundableEntity compoundableEntity) {
-        Body body;
+        BodyBase bodyBase;
         for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
-            body = compoundableEntity.getSubEntity(i);
-            if (body.getName().matches(name)) return body;
-            if (body instanceof Planet) {
-                body = (Body) this.findSubEntityByName(name, (CompoundableEntity) body);
-                if (body != null) return body;
+            bodyBase = compoundableEntity.getSubEntity(i);
+            if (bodyBase.getName().matches(name)) return bodyBase;
+            if (bodyBase instanceof Planet) {
+                bodyBase = (BodyBase) this.findSubEntityByName(name, (CompoundableEntity) bodyBase);
+                if (bodyBase != null) return bodyBase;
             }
         }
         return null;
     }
+
+
 }

@@ -1,7 +1,7 @@
 package com.epam.java.rt.lab.task.star.system.service;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.BodiesAggregator;
-import com.epam.java.rt.lab.task.star.system.model.entity.Body;
+import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.entity.StarSystem;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,12 +12,12 @@ import java.io.PrintWriter;
  * Created by P1A-7CK on 07.07.2016.
  */
 public class Impacter {
-    public Impacter(Body guestBody, BodiesAggregator hostSystem, int maxIterations) throws IOException {
+    public Impacter(BodyBase guestBodyBase, StarSystem hostSystem, int maxIterations) throws IOException {
         try {
             FileWriter fw = new FileWriter("impacter.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            pw.println("guestBody: " + guestBody);
+            pw.println("guestBodyBase: " + guestBodyBase);
             pw.println("hostSystem: " + hostSystem);
             pw.println("\nChecking host system configuration...");
             int iteration;
@@ -44,14 +44,14 @@ public class Impacter {
 
     }
 
-    private boolean iterateImpact(Body impactBody, BodiesAggregator hostSystem) {
+    private boolean iterateImpact(BodyBase impactBodyBase, StarSystem hostSystem) {
         for (int i = 0; i < hostSystem.countSubEntities(); i++) {
-            /*double distanceDelta = Math.abs(impactBody.getDistanceFromCenter() - hostSystem.getSubEntity(i).getDistanceFromCenter());
-            double radiusSum = (impactBody.getDiameter() + hostSystem.getSubEntity(i).getDiameter()) / 2;
+            /*double distanceDelta = Math.abs(impactBodyBase.getDistanceFromCenter() - hostSystem.getSubEntity(i).getDistanceFromCenter());
+            double radiusSum = (impactBodyBase.getDiameter() + hostSystem.getSubEntity(i).getDiameter()) / 2;
             if ((distanceDelta - radiusSum) < 1) {
                 PrintWriter pw = getPrinterWriter("");
 
-                pw.println("\nImpact detected!\nImpacter " + impactBody;
+                pw.println("\nImpact detected!\nImpacter " + impactBodyBase;
                 pw.println("\nVictim " + hostSystem.getSubEntity(i));
                 } catch (IOException e) {
                     System.out.println("Writer crash");

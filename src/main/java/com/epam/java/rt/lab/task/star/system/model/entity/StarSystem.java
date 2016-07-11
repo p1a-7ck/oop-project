@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class BodiesAggregator implements ChangeableMass, ChangeableName, CompoundableEntity {
+public class StarSystem implements ChangeableMass, ChangeableName, CompoundableEntity {
     private String name;
-    private List<Body> bodies = new ArrayList<Body>();
+    private List<BodyBase> bodies = new ArrayList<BodyBase>();
 
-    public BodiesAggregator() {
+    public StarSystem() {
     }
 
     public String getName() {
@@ -28,8 +28,8 @@ public class BodiesAggregator implements ChangeableMass, ChangeableName, Compoun
     public List<String> getNamesAll() {
         List<String> names = new ArrayList<String>();
         names.add(this.name);
-        for (Body body : this.bodies) {
-            names.addAll(body.getNamesAll());
+        for (BodyBase bodyBase : this.bodies) {
+            names.addAll(bodyBase.getNamesAll());
         }
         return names;
     }
@@ -49,10 +49,10 @@ public class BodiesAggregator implements ChangeableMass, ChangeableName, Compoun
     }
 
     // all next methods commented in interface
-    public void addSubEntity(int index, Body subEntity) {
+    public void addSubEntity(int index, BodyBase subEntity) {
         if (!(subEntity instanceof Satellite)) {
-            for (Body body : this.bodies) {
-                if (body.equals(subEntity))
+            for (BodyBase bodyBase : this.bodies) {
+                if (bodyBase.equals(subEntity))
                     throw new IllegalArgumentException("Astral entity object already exist");
             }
             if (index < 0) this.bodies.add(subEntity);
@@ -62,7 +62,7 @@ public class BodiesAggregator implements ChangeableMass, ChangeableName, Compoun
         }
     }
 
-    public void setSubEntity(int index, Body subEntity) {
+    public void setSubEntity(int index, BodyBase subEntity) {
         if (!(subEntity instanceof Satellite)) {
             this.bodies.set(getBodiesBoundedIndex(index), subEntity);
         } else {
@@ -74,14 +74,14 @@ public class BodiesAggregator implements ChangeableMass, ChangeableName, Compoun
         this.bodies.remove(getBodiesBoundedIndex(index));
     }
 
-    public Body getSubEntity(int index) {
+    public BodyBase getSubEntity(int index) {
         return this.bodies.get(getBodiesBoundedIndex(index));
     }
 
     public double getMass() {
         double mass = 0;
-        for (Body body : this.bodies)
-            mass += body.getMass();
+        for (BodyBase bodyBase : this.bodies)
+            mass += bodyBase.getMass();
         return mass;
     }
 
@@ -91,7 +91,7 @@ public class BodiesAggregator implements ChangeableMass, ChangeableName, Compoun
 
     @Override
     public String toString() {
-        return "BodiesAggregator{" +
+        return "StarSystem{" +
                 "name='" + name + '\'' +
                 ", bodies=" + bodies +
                 '}';

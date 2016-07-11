@@ -1,7 +1,7 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
 import com.epam.java.rt.lab.task.star.system.model.ChangeableStarClass;
-import com.epam.java.rt.lab.task.star.system.model.entity.Body;
+import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
 import com.epam.java.rt.lab.task.star.system.model.entity.Satellite;
 import com.epam.java.rt.lab.task.star.system.model.entity.Star;
@@ -33,31 +33,31 @@ public class BodyFactory {
     public BodyFactory() {
     }
 
-    public Body createRandomBody(Body body, PropertyFactory propertyFactory) {
+    public BodyBase createRandomBody(BodyBase bodyBase, PropertyFactory propertyFactory) {
         Random random = new Random();
-        body.setName(nameFactory.createRandomName());
-        body.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
-        body.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
-        body.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
-        body.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) +
+        bodyBase.setName(nameFactory.createRandomName());
+        bodyBase.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
+        bodyBase.setDensity(random.nextDouble() * (this.maxDensity - this.minDensity) + this.minDensity);
+        bodyBase.setDiameter(random.nextDouble() * (this.maxDiameter - this.minDiameter) + this.minDiameter);
+        bodyBase.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) +
                 this.minDistanceFromCenter);
-        if (body instanceof Star) {
+        if (bodyBase instanceof Star) {
             Star.SPECTRAL_CLASS[] spectralClass = Star.SPECTRAL_CLASS.values();
             Star.SIZE_PREFIX[] sizePrefices = Star.SIZE_PREFIX.values();
             Star.EMITION_SUFFIX[] emitionSuffices = Star.EMITION_SUFFIX.values();
-            ((ChangeableStarClass) body).setSpectralClass(spectralClass[random.nextInt(16)]);
-            ((ChangeableStarClass) body).setSizePrefix(sizePrefices[random.nextInt(8)]);
-            ((ChangeableStarClass) body).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
+            ((ChangeableStarClass) bodyBase).setSpectralClass(spectralClass[random.nextInt(16)]);
+            ((ChangeableStarClass) bodyBase).setSizePrefix(sizePrefices[random.nextInt(8)]);
+            ((ChangeableStarClass) bodyBase).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
         }
-        if (body instanceof Planet) {
+        if (bodyBase instanceof Planet) {
             for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) +
                     this.minEachPlanetSatelliteNumber; s++) {
                 Satellite satellite = (Satellite) this.createRandomBody(new Satellite(), propertyFactory);
-                ((Planet) body).addSubEntity(-1, satellite);
+                ((Planet) bodyBase).addSubEntity(-1, satellite);
             }
         }
-        propertyFactory.createRandomProperty(body);
-        return body;
+        propertyFactory.createRandomProperty(bodyBase);
+        return bodyBase;
     }
 
     public double getMinMass() {

@@ -15,7 +15,7 @@ public class FactoriesInitial {
     public void InitiateFactories(NameFactory nameFactory,
                                   PropertyFactory propertyFactory,
                                   BodyFactory bodyFactory,
-                                  AggregatorFactory aggregatorFactory) {
+                                  StarSystemFactory starSystemFactory) {
         nameFactory.setNameMaxLength(15);
         nameFactory.setNameMinLength(5);
         propertyFactory.nameFactory = nameFactory;
@@ -36,10 +36,10 @@ public class FactoriesInitial {
         bodyFactory.setMinDistanceFromCenter(10000);
         bodyFactory.setMaxEachPlanetSatelliteNumber(10);
         bodyFactory.setMinEachPlanetSatelliteNumber(0);
-        aggregatorFactory.nameFactory = nameFactory;
-        aggregatorFactory.setMaxStarNumber(5);
-        aggregatorFactory.setMinStarNumber(1);
-        aggregatorFactory.setMaxPlanetNumber(15);
-        aggregatorFactory.setMinPlanetNumber(5);
+        starSystemFactory.nameFactory = nameFactory;
+        starSystemFactory.setMaxStarNumber(5);
+        starSystemFactory.setMinStarNumber(1);
+        starSystemFactory.setMaxPlanetNumber(15);
+        starSystemFactory.setMinPlanetNumber(5);
     }
 }

@@ -1,13 +1,11 @@
 package com.epam.java.rt.lab.task.star.system.model.entity;
 
-import com.epam.java.rt.lab.task.star.system.model.ChangeableProperty;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableStarClass;
-import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
 
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Star extends Body implements ChangeableStarClass {
+public class Star extends BodyBase implements ChangeableStarClass {
     public enum SPECTRAL_CLASS {O, B, A, F, G, K, M, W, L, T, Y, C, S, D, Q, P}
 
     public enum SIZE_PREFIX {d, esd, c, g, sg, sd, w, wd}

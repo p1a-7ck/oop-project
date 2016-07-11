@@ -1,6 +1,5 @@
 package com.epam.java.rt.lab.task.star.system.model.entity;
 
-import com.epam.java.rt.lab.task.star.system.model.ChangeableProperty;
 import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
 
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.List;
 /**
  * Created by P1A-7CK on 06.07.2016.
  */
-public class Planet extends Body implements CompoundableEntity {
+public class Planet extends BodyBase implements CompoundableEntity {
     private ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
     public Planet() {
@@ -28,7 +27,7 @@ public class Planet extends Body implements CompoundableEntity {
         throw new IllegalArgumentException("There is no satellite with index equals " + index);
     }
 
-    public void addSubEntity(int index, Body subEntity) {
+    public void addSubEntity(int index, BodyBase subEntity) {
         if (subEntity instanceof Satellite) {
             for (Satellite satellite : this.satellites) {
                 if (satellite.equals(subEntity))
@@ -41,7 +40,7 @@ public class Planet extends Body implements CompoundableEntity {
         }
     }
 
-    public void setSubEntity(int index, Body subEntity) {
+    public void setSubEntity(int index, BodyBase subEntity) {
         if (subEntity instanceof Satellite) {
             this.satellites.set(getSatellitesBoundedIndex(index), (Satellite) subEntity);
         } else {
@@ -53,7 +52,7 @@ public class Planet extends Body implements CompoundableEntity {
         this.satellites.remove(getSatellitesBoundedIndex(index));
     }
 
-    public Body getSubEntity(int index) {
+    public BodyBase getSubEntity(int index) {
         return this.satellites.get(getSatellitesBoundedIndex(index));
     }
 
@@ -61,8 +60,8 @@ public class Planet extends Body implements CompoundableEntity {
     public List<String> getNamesAll() {
         List<String> names = new ArrayList<String>();
         names.add(super.getName());
-        for (Body body : this.satellites) {
-            names.addAll(body.getNamesAll());
+        for (BodyBase bodyBase : this.satellites) {
+            names.addAll(bodyBase.getNamesAll());
         }
         return names;
     }
