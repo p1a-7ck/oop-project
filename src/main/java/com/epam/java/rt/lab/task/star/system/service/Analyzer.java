@@ -17,7 +17,8 @@ import java.util.List;
  * Rollan Taigulov (P1A-7CK)
  */
 public class Analyzer implements Analyzable {
-    private static final Logger logger = LoggerFactory.getLogger(Analyzer.class);
+    private static final Logger INFO = LoggerFactory.getLogger(Analyzer.class.getName().concat(".INFO"));
+    private static final Logger WARN = LoggerFactory.getLogger(Analyzer.class.getName().concat(".WARN"));
 
     public Analyzer() {
     }
@@ -59,7 +60,8 @@ public class Analyzer implements Analyzable {
         ChangeableMass subEntity;
         for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
             subEntity = compoundableEntity.getSubEntity(i);
-            logger.info(subEntity.toString());
+            INFO.info(subEntity.toString());
+            WARN.warn(subEntity.toString());
             if (subEntity.getMass() < mass) resultEntities.add(subEntity);
             if (subEntity instanceof Planet)
                 resultEntities.addAll(this.findSubEntitiesWithLessMass(mass, (CompoundableEntity) subEntity));
