@@ -3,8 +3,8 @@ package com.epam.java.rt.lab.task.star.system.service;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
-import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
-import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
+import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.body.Planet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

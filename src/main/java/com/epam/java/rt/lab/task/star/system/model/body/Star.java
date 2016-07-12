@@ -1,4 +1,4 @@
-package com.epam.java.rt.lab.task.star.system.model.entity;
+package com.epam.java.rt.lab.task.star.system.model.body;
 
 import com.epam.java.rt.lab.task.star.system.model.ChangeableStarClass;
 

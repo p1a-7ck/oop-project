@@ -1,8 +1,8 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.StarSystem;
-import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
-import com.epam.java.rt.lab.task.star.system.model.entity.Star;
+import com.epam.java.rt.lab.task.star.system.model.StarSystem;
+import com.epam.java.rt.lab.task.star.system.model.body.Planet;
+import com.epam.java.rt.lab.task.star.system.model.body.Star;
 
 import java.util.Random;
 

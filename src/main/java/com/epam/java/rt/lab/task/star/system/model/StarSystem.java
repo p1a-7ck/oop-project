@@ -1,8 +1,7 @@
-package com.epam.java.rt.lab.task.star.system.model.entity;
+package com.epam.java.rt.lab.task.star.system.model;
 
-import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
-import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
-import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
+import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.body.Satellite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,7 @@ public class StarSystem implements ChangeableMass, ChangeableName, CompoundableE
     private int getBodiesBoundedIndex(int index) {
         // validation of requested index, resulting int-value of index for inline code use
         if (index >= 0 && index < this.bodies.size()) return index;
-        throw new IllegalArgumentException("There is no astral entity with index equals " + index);
+        throw new IllegalArgumentException("There is no astral body with index equals " + index);
     }
 
     // all next methods commented in interface
@@ -53,7 +52,7 @@ public class StarSystem implements ChangeableMass, ChangeableName, CompoundableE
         if (!(subEntity instanceof Satellite)) {
             for (BodyBase bodyBase : this.bodies) {
                 if (bodyBase.equals(subEntity))
-                    throw new IllegalArgumentException("Astral entity object already exist");
+                    throw new IllegalArgumentException("Astral body object already exist");
             }
             if (index < 0) this.bodies.add(subEntity);
             else this.bodies.add(getBodiesBoundedIndex(index), subEntity);

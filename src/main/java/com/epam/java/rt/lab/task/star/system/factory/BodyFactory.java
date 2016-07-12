@@ -1,10 +1,10 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
 import com.epam.java.rt.lab.task.star.system.model.ChangeableStarClass;
-import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
-import com.epam.java.rt.lab.task.star.system.model.entity.Planet;
-import com.epam.java.rt.lab.task.star.system.model.entity.Satellite;
-import com.epam.java.rt.lab.task.star.system.model.entity.Star;
+import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.body.Planet;
+import com.epam.java.rt.lab.task.star.system.model.body.Satellite;
+import com.epam.java.rt.lab.task.star.system.model.body.Star;
 
 import java.util.Random;
 

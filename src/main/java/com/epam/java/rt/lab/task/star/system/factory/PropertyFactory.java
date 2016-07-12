@@ -1,6 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
 
 import java.util.Random;
 

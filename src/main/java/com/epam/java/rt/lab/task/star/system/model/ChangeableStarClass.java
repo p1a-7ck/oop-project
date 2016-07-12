@@ -1,6 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.model;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.Star;
+import com.epam.java.rt.lab.task.star.system.model.body.Star;
 
 /**
  * Created by P1A-7CK on 07.07.2016.

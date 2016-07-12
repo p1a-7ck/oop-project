@@ -1,7 +1,7 @@
 package com.epam.java.rt.lab.task.star.system.service;
 
-import com.epam.java.rt.lab.task.star.system.model.entity.BodyBase;
-import com.epam.java.rt.lab.task.star.system.model.entity.StarSystem;
+import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
+import com.epam.java.rt.lab.task.star.system.model.StarSystem;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
