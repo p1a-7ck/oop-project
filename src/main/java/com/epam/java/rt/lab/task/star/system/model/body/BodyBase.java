@@ -113,8 +113,9 @@ public abstract class BodyBase implements ChangeableName, ChangeableMass { //, C
 
     @Override
     public int hashCode() {
-        return (id == null || name == null) ? 0 :
-                id.hashCode() + name.hashCode();
+//        return 37 * id.hashCode() + name.hashCode();
+        return (int) (31 * this.mass) +
+                ((id == null || name == null) ? 0 : id.hashCode() + name.hashCode());
     }
 
     @Override

@@ -69,4 +69,28 @@ public class Analyzer implements Analyzable {
         return resultEntities;
     }
 
+    public List<String> findHashCodeCollision(CompoundableEntity compoundableEntity, CompoundableEntity compoundableEntityNew) {
+        List<String> resultEntitiesToString = new ArrayList<String>();
+        BodyBase bodyBase;
+        BodyBase bodyBaseNew;
+        for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
+            bodyBase = compoundableEntity.getSubEntity(i);
+            for (int j = i; j < compoundableEntityNew.countSubEntities(); j++) {
+                bodyBaseNew = compoundableEntityNew.getSubEntity(j);
+                if (bodyBase.hashCode() == bodyBaseNew.hashCode()){
+                    if (bodyBaseNew instanceof Planet) {
+                        resultEntitiesToString.add(bodyBase.getName().concat(" = ").concat(bodyBaseNew.getName()));
+                    }
+                }
+                if (bodyBase instanceof Planet && bodyBaseNew instanceof Planet) {
+                    resultEntitiesToString.addAll(this.findHashCodeCollision((CompoundableEntity) bodyBase,
+                            (CompoundableEntity) bodyBaseNew));
+                }
+            }
+            if (bodyBase instanceof Planet) {
+                resultEntitiesToString.addAll(this.findHashCodeCollision((CompoundableEntity) bodyBase, compoundableEntityNew));
+            }
+        }
+        return resultEntitiesToString;
+    }
 }

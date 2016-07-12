@@ -6,7 +6,10 @@ import com.epam.java.rt.lab.task.star.system.model.body.Planet;
 import com.epam.java.rt.lab.task.star.system.model.StarSystem;
 import com.epam.java.rt.lab.task.star.system.service.Analyzable;
 import com.epam.java.rt.lab.task.star.system.service.Analyzer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +21,8 @@ import java.util.List;
  * through the interfaces to make project code-safe and type-safe
  */
 public class Main {
+    private final static Logger logger = LoggerFactory.getLogger("COLLISION");
+
     public static void main(String[] args) {
         NameFactory nameFactory = new NameFactory();
         PropertyFactory propertyFactory = new PropertyFactory();
@@ -55,5 +60,14 @@ public class Main {
 
         System.out.println("\nRETRIEVING SUB-ENTITIES BY MASS (" + starSystem.getSubEntity(6).getMass() + "):");
         System.out.println(analyzer.findSubEntitiesWithLessMass(starSystem.getSubEntity(6).getMass(), starSystem));
+
+        List<String> collisions = new ArrayList<String>();
+        bodyFactory.setMaxEachPlanetSatelliteNumber(1000);
+        for (int i = 0; i < 25; i++) {
+            collisions.addAll(analyzer.findHashCodeCollision(starSystemFactory.createRandomSystem(bodyFactory, propertyFactory),
+                                                             starSystemFactory.createRandomSystem(bodyFactory, propertyFactory)));
+            logger.info(".findHashCodeCollision(".concat(String.valueOf(i)).concat(")"));
+        }
+        System.out.println(collisions);
     }
 }
