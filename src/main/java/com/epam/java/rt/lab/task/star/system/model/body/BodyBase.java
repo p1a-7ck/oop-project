@@ -1,5 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.model.body;
 
+import com.epam.java.rt.lab.task.star.system.Main;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 
@@ -9,7 +10,7 @@ import java.util.*;
  * Created by P1A-7CK on 06.07.2016.
  */
 public abstract class BodyBase implements ChangeableName, ChangeableMass { //, ChangeableGeometry, ChangeableProperty
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String name;
     private double mass;
     private double density;
@@ -18,6 +19,10 @@ public abstract class BodyBase implements ChangeableName, ChangeableMass { //, C
     private Map<String, Object> properties = new HashMap<String, Object>();
 
     public UUID getId() { return id; }
+
+    public void setId(UUID id) { this.id = id; }
+
+    public void setId() { this.id = UUID.randomUUID(); }
 
     public String getName() {
         return name;
@@ -112,39 +117,29 @@ public abstract class BodyBase implements ChangeableName, ChangeableMass { //, C
     }
 
     @Override
-    public int hashCode() {
-//        return 37 * id.hashCode() + name.hashCode();
-        return (int) (31 * this.mass) +
-                ((id == null || name == null) ? 0 : id.hashCode() + name.hashCode());
+    public boolean equals(Object o) {
+        Main.LOGGER.trace("{}.equals ({})", this.getName(), o.toString());
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BodyBase bodyBase = (BodyBase) o;
+//        if (Double.compare(bodyBase.mass, mass) != 0) return false;
+//        if (Double.compare(bodyBase.density, density) != 0) return false;
+//        if (Double.compare(bodyBase.diameter, diameter) != 0) return false;
+//        if (Double.compare(bodyBase.distanceFromCenter, distanceFromCenter) != 0) return false;
+        if (this.id != null && bodyBase.id != null) return this.id.equals(bodyBase.id);
+        throw new IllegalStateException("Formed object should have not null id field");
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (this.getClass() != obj.getClass()) return false;
-        try {
-            BodyBase objBodyBase = (BodyBase) obj;
-            if (!this.name.equals(objBodyBase.getName())) return false;
-            if (this.mass != objBodyBase.getMass()) return false;
-            if (this.density != objBodyBase.getDensity()) return false;
-            if (this.diameter != objBodyBase.getDiameter()) return false;
-            if (this.distanceFromCenter != objBodyBase.getDistanceFromCenter()) return false;
-            return true;
-        } catch (Exception exc) {
-            return false;
-        }
+    public int hashCode() {
+        Main.LOGGER.trace("{}.hashCode ()", this.getName());
+        return id.hashCode();
     }
 
     @Override
     public String toString() {
         return "BodyBase{" +
-                "name='" + name + '\'' +
-                ", mass=" + mass +
-                ", density=" + density +
-                ", diameter=" + diameter +
-                ", distanceFromCenter=" + distanceFromCenter +
-                ", propertiesNames=" + getPropertiesNames() +
+                "name='" + name +
                 '}';
     }
 }

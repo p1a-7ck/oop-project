@@ -77,13 +77,8 @@ public class Planet extends BodyBase implements CompoundableEntity {
     @Override
     public String toString() {
         return "Planet{" +
-                "name='" + super.getName() + '\'' +
-                ", mass=" + super.getMass() +
-                ", density=" + super.getDensity() +
-                ", diameter=" + super.getDiameter() +
-                ", distanceFromCenter=" + super.getDistanceFromCenter() +
-                ", propertyNames=" + super.getPropertiesNames() +
-                ", satellites = " + satellites +
+                "name='" + super.getName() +
+                ", 'number of satellites'=" + satellites.size() +
                 '}';
     }
 }

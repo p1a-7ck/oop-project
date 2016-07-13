@@ -1,5 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.factory;
 
+import com.epam.java.rt.lab.task.star.system.Main;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableStarClass;
 import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
 import com.epam.java.rt.lab.task.star.system.model.body.Planet;
@@ -34,6 +35,7 @@ public class BodyFactory {
     }
 
     public BodyBase createRandomBody(BodyBase bodyBase, PropertyFactory propertyFactory) {
+        Main.LOGGER.trace(".createRandomBody()");
         Random random = new Random();
         bodyBase.setName(nameFactory.createRandomName());
         bodyBase.setMass(random.nextDouble() * (this.maxMass - this.minMass) + this.minMass);
@@ -42,6 +44,7 @@ public class BodyFactory {
         bodyBase.setDistanceFromCenter(random.nextDouble() * (this.maxDistanceFromCenter - this.minDistanceFromCenter) +
                 this.minDistanceFromCenter);
         if (bodyBase instanceof Star) {
+            Main.LOGGER.trace("bodyBase ({}) instanceof Star", bodyBase.getName());
             Star.SPECTRAL_CLASS[] spectralClass = Star.SPECTRAL_CLASS.values();
             Star.SIZE_PREFIX[] sizePrefices = Star.SIZE_PREFIX.values();
             Star.EMITION_SUFFIX[] emitionSuffices = Star.EMITION_SUFFIX.values();
@@ -50,13 +53,17 @@ public class BodyFactory {
             ((ChangeableStarClass) bodyBase).setEmitionSuffix(emitionSuffices[random.nextInt(28)]);
         }
         if (bodyBase instanceof Planet) {
+            Main.LOGGER.trace("bodyBase ({}) instanceof Planet", bodyBase.getName());
             for (int s = 0; s < random.nextInt(this.maxEachPlanetSatelliteNumber - this.minEachPlanetSatelliteNumber) +
                     this.minEachPlanetSatelliteNumber; s++) {
                 Satellite satellite = (Satellite) this.createRandomBody(new Satellite(), propertyFactory);
                 ((Planet) bodyBase).addSubEntity(-1, satellite);
             }
         }
+        Main.LOGGER.trace("bodyBase ({}) instanceof Satellite", bodyBase.getName());
+        bodyBase.setId();
         propertyFactory.createRandomProperty(bodyBase);
+        Main.LOGGER.trace("return bodyBase ({})", bodyBase.getId());
         return bodyBase;
     }
 

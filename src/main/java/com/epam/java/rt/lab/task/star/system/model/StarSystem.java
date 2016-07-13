@@ -92,7 +92,7 @@ public class StarSystem implements ChangeableMass, ChangeableName, CompoundableE
     public String toString() {
         return "StarSystem{" +
                 "name='" + name + '\'' +
-                ", bodies=" + bodies +
+                ", 'number of bodies'=" + bodies.size() +
                 '}';
     }
 }

@@ -50,13 +50,8 @@ public class Star extends BodyBase implements ChangeableStarClass {
     @Override
     public String toString() {
         return "Star{" +
-                "name='" + super.getName() + '\'' +
-                ", mass=" + super.getMass() +
-                ", density=" + super.getDensity() +
-                ", diameter=" + super.getDiameter() +
-                ", distanceFromCenter=" + super.getDistanceFromCenter() +
-                ", spectralClass=" + this.getClassificationName() +
-                ", propertiesNames=" + super.getPropertiesNames() +
+                "name='" + super.getName() +
+                ", class=" + this.getClassificationName() +
                 '}';
 
     }

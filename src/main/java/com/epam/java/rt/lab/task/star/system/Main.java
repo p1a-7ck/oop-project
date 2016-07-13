@@ -1,16 +1,11 @@
 package com.epam.java.rt.lab.task.star.system;
 
 import com.epam.java.rt.lab.task.star.system.factory.*;
-import com.epam.java.rt.lab.task.star.system.model.body.BodyBase;
-import com.epam.java.rt.lab.task.star.system.model.body.Planet;
 import com.epam.java.rt.lab.task.star.system.model.StarSystem;
 import com.epam.java.rt.lab.task.star.system.service.Analyzable;
 import com.epam.java.rt.lab.task.star.system.service.Analyzer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by P1A-7CK on 30.06.2016.
@@ -21,7 +16,7 @@ import java.util.List;
  * through the interfaces to make project code-safe and type-safe
  */
 public class Main {
-    private final static Logger logger = LoggerFactory.getLogger("COLLISION");
+    public final static Logger LOGGER = LoggerFactory.getLogger("LOGGER");
 
     public static void main(String[] args) {
         NameFactory nameFactory = new NameFactory();
@@ -31,43 +26,17 @@ public class Main {
         (new FactoriesInitial()).InitiateFactories(nameFactory, propertyFactory, bodyFactory, starSystemFactory);
 
         StarSystem starSystem = starSystemFactory.createRandomSystem(bodyFactory, propertyFactory);
-
-        System.out.println("\nCREATED ENTITIES");
         System.out.println(starSystem);
 
         Analyzable analyzer = new Analyzer();
-        System.out.println("\nTOTAL MASS OF '" + starSystem.getName() + "' EQUALS TO " + analyzer.multiplyMass(starSystem));
-
-        System.out.println("\nALL NAMES OF STARS/PLANETS/SATELLITES");
+        System.out.println(analyzer.multiplyMass(starSystem));
         System.out.println(analyzer.retrieveNames(starSystem));
 
-        System.out.println("\nALL NAMES OF STARS/PLANETS/SATELLITES SORTED");
-        List<String> names = analyzer.retrieveNamesSorted(starSystem);
-        System.out.println(names);
+        System.out.println(analyzer.retrieveNamesSorted(starSystem));
+        System.out.println(analyzer.findSubEntityByName(nameFactory.createRandomName(), starSystem));
 
-        System.out.println("\nSEVENTH OBJECT");
-        System.out.println(analyzer.findSubEntityByName(names.get(6), starSystem));
+        System.out.println(starSystem.getSubEntity(3).equals(starSystem.getSubEntity(5)));
 
-        System.out.println("\nCOPYING AND COMPARING OBJECT");
-        BodyBase planetClone = new Planet();
-        planetClone.copyOf(starSystem.getSubEntity(2));
-        System.out.println("\nFIRST OBJECT (COPYOF):");
-        System.out.println(planetClone);
-        System.out.println("\nSECOND OBJECT (INITIAL):");
-        System.out.println(starSystem.getSubEntity(2));
-        System.out.println("\nEQUAL RESULT:");
-        System.out.println(planetClone.equals(starSystem.getSubEntity(2)));
-
-        System.out.println("\nRETRIEVING SUB-ENTITIES BY MASS (" + starSystem.getSubEntity(6).getMass() + "):");
         System.out.println(analyzer.findSubEntitiesWithLessMass(starSystem.getSubEntity(6).getMass(), starSystem));
-
-        List<String> collisions = new ArrayList<String>();
-        bodyFactory.setMaxEachPlanetSatelliteNumber(1000);
-        for (int i = 0; i < 25; i++) {
-            collisions.addAll(analyzer.findHashCodeCollision(starSystemFactory.createRandomSystem(bodyFactory, propertyFactory),
-                                                             starSystemFactory.createRandomSystem(bodyFactory, propertyFactory)));
-            logger.info(".findHashCodeCollision(".concat(String.valueOf(i)).concat(")"));
-        }
-        System.out.println(collisions);
     }
 }

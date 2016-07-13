@@ -51,6 +51,11 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
+
+    <logger name="LOGGER" level="TRACE" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
     <!--
     root defines what appender will be used to output log-message as default, as a result all log-messages wil appear
     in 'STDOUT'-appender

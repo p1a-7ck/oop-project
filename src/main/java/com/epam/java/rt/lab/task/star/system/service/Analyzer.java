@@ -1,5 +1,6 @@
 package com.epam.java.rt.lab.task.star.system.service;
 
+import com.epam.java.rt.lab.task.star.system.Main;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableMass;
 import com.epam.java.rt.lab.task.star.system.model.ChangeableName;
 import com.epam.java.rt.lab.task.star.system.model.CompoundableEntity;
@@ -32,6 +33,7 @@ public class Analyzer implements Analyzable {
     }
 
     public List<String> retrieveNamesSorted(ChangeableName changeableName) {
+        Main.LOGGER.trace(".retrieveNamesSorted()");
         Comparator<String> comp = new Comparator<String>() {
             public int compare(String o1, String o2) {
                 return o1.compareTo(o2);
@@ -56,12 +58,11 @@ public class Analyzer implements Analyzable {
     }
 
     public List<ChangeableMass> findSubEntitiesWithLessMass(double mass, CompoundableEntity compoundableEntity) {
+        Main.LOGGER.trace("{}.findSubEntitiesWithLessMass ({})", ((ChangeableName) compoundableEntity).getName(), mass);
         List<ChangeableMass> resultEntities = new ArrayList<ChangeableMass>();
         ChangeableMass subEntity;
         for (int i = 0; i < compoundableEntity.countSubEntities(); i++) {
             subEntity = compoundableEntity.getSubEntity(i);
-            INFO.info(subEntity.toString());
-            WARN.warn(subEntity.toString());
             if (subEntity.getMass() < mass) resultEntities.add(subEntity);
             if (subEntity instanceof Planet)
                 resultEntities.addAll(this.findSubEntitiesWithLessMass(mass, (CompoundableEntity) subEntity));
